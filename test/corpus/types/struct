@@ -1,0 +1,26 @@
+================================================================================
+Struct
+================================================================================
+
+type S = struct {};
+type S = struct { a: uint8; s: S &foo; };
+
+--------------------------------------------------------------------------------
+
+(module
+  (struct_decl
+    (ident))
+  (statement)
+  (struct_decl
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident)))
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name))))
+  (statement))

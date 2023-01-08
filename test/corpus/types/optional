@@ -1,0 +1,34 @@
+================================================================================
+Optional
+================================================================================
+module bla;
+
+type X = unit {
+    var x: uint64 &optional;
+    on %init { unset self.x;}
+};
+--------------------------------------------------------------------------------
+
+(module
+  (module_decl
+    (ident))
+  (type_decl
+    (ident)
+    (var_decl
+      (linkage)
+      (ident)
+      (typename
+        (ident))
+      (optional))
+    (hook_decl
+      (ident)
+      (statement
+        (block
+          (statement
+            (unset
+              (expression
+                (type_member
+                  (expression
+                    (self_id))
+                  (type_member_ident
+                    (ident)))))))))))

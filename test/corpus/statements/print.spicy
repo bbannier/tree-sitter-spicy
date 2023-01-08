@@ -1,0 +1,41 @@
+================================================================================
+Print
+================================================================================
+
+print True;
+print True, 32;
+print;
+print "Xyz";
+print (1, 2, True, b"XX");
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (print
+      (expression
+        (boolean))))
+  (statement
+    (print
+      (expression
+        (boolean))
+      (expression
+        (integer))))
+  (statement
+    (print))
+  (statement
+    (print
+      (expression
+        (string))))
+  (statement
+    (print
+      (expression
+        (tuple
+          (expression
+            (integer))
+          (expression
+            (integer))
+          (expression
+            (boolean))
+          (expression
+            (bytes)))))))

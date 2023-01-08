@@ -1,0 +1,57 @@
+================================================================================
+Identifiers
+================================================================================
+
+a;
+aA;
+a_C;
+_a_C;
+_1z_C;
+abd123;
+
+# Can conflict with bytes ctor.
+b;
+b1;
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (ident)))
+  (statement
+    (expression
+      (ident)))
+  (statement
+    (expression
+      (ident)))
+  (statement
+    (expression
+      (ident)))
+  (statement
+    (expression
+      (ident)))
+  (statement
+    (expression
+      (ident)))
+  (comment)
+  (statement
+    (expression
+      (ident)))
+  (statement
+    (expression
+      (ident))))
+
+================================================================================
+Library type identifier
+================================================================================
+
+type Val = __library_type("::zeek::ValPtr");
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (library_type
+      (string))))

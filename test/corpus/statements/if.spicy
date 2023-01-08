@@ -1,0 +1,154 @@
+================================================================================
+If
+================================================================================
+
+if ( X == 1 )
+    assert True;
+
+if ( X != 1 )
+    assert False;
+
+if ( X == 1 )
+    assert True;
+else
+    assert False;
+
+if ( X != 1 )
+    assert False;
+else
+    assert True;
+
+type TestUnit1 = unit() {
+    a: bytes &size=1 if ( True );
+};
+
+type TestUnit2 = unit() {
+    a: bytes &size=1;
+    b: bytes &size=1 if ( True );
+};
+
+type TestUnit3 = unit() {
+    a: uint16 &size=1;
+    b: bytes &size=1 if ( True );
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (if
+      (expression
+        (binary_op
+          (expression
+            (ident))
+          (expression
+            (integer))))
+      (statement
+        (assert
+          (expression
+            (boolean))))))
+  (statement
+    (if
+      (expression
+        (binary_op
+          (expression
+            (ident))
+          (expression
+            (integer))))
+      (statement
+        (assert
+          (expression
+            (boolean))))))
+  (statement
+    (if
+      (expression
+        (binary_op
+          (expression
+            (ident))
+          (expression
+            (integer))))
+      (statement
+        (assert
+          (expression
+            (boolean))))
+      (statement
+        (assert
+          (expression
+            (boolean))))))
+  (statement
+    (if
+      (expression
+        (binary_op
+          (expression
+            (ident))
+          (expression
+            (integer))))
+      (statement
+        (assert
+          (expression
+            (boolean))))
+      (statement
+        (assert
+          (expression
+            (boolean))))))
+  (type_decl
+    (ident)
+    (params)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))
+      (if
+        (expression
+          (boolean))
+        (statement))))
+  (type_decl
+    (ident)
+    (params)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer))))
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))
+      (if
+        (expression
+          (boolean))
+        (statement))))
+  (type_decl
+    (ident)
+    (params)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer))))
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))
+      (if
+        (expression
+          (boolean))
+        (statement)))))

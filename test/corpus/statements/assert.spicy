@@ -1,0 +1,41 @@
+================================================================================
+Assert
+================================================================================
+
+assert 1;
+assert 1 == 1;
+assert 1 != 0 : "my error"; 
+assert-exception b3 == b"XXX";
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (assert
+      (expression
+        (integer))))
+  (statement
+    (assert
+      (expression
+        (binary_op
+          (expression
+            (integer))
+          (expression
+            (integer))))))
+  (statement
+    (assert
+      (expression
+        (binary_op
+          (expression
+            (integer))
+          (expression
+            (integer))))
+      (string)))
+  (statement
+    (assert
+      (expression
+        (binary_op
+          (expression
+            (ident))
+          (expression
+            (bytes)))))))

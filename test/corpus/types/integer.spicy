@@ -1,0 +1,320 @@
+================================================================================
+ctor
+================================================================================
+
+0xFFFFFFFFFFFFFFFF;
+-0x8000000000000000;
+
+'4';
+0x7f;
+-128;
+-1;
+
+0xFF;
+0x80;
+
+'p';
+0x7FFF;
+-32768;
+-1;
+
+0xFFFF;
+0x8000;
+
+'p';
+0x7FFFFFFF;
+-0x80000000;
+-1;
+
+0xFFFFFFFF;
+0x80000000;
+
+9223372036854775807;
+0x7FFFFFFFFFFFFFFF;
+-0x8000000000000000;
+-1;
+
+0xFFFFFFFFffffffff;
+0x8000000000000000;
+
++01;
++1;
+
+0xFFFFFFFFFFFFF800p0;
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (unary_op
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (char)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (unary_op
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (unary_op
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (char)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (unary_op
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (unary_op
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (char)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (unary_op
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (unary_op
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (unary_op
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (unary_op
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (integer)))
+  (statement
+    (expression
+      (integer))))
+
+================================================================================
+Ops
+================================================================================
+
+i * j;
+l / i;
+l % k;
+i ** m;
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident))))))
+
+================================================================================
+Cmp
+================================================================================
+
+i == i;
+i != i;
+i < i;
+i > i;
+i <= i;
+i >= i;
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (ident))))))
+
+================================================================================
+Op Eq
+================================================================================
+
+i += i;
+i -= i;
+i *= i;
+i /= i;
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (assign
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (assign
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (assign
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (assign
+        (expression
+          (ident))
+        (expression
+          (ident))))))
+
+================================================================================
+Assign
+================================================================================
+
+i = i;
+i = 1 = i;
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (assign
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (assign
+        (expression
+          (assign
+            (expression
+              (ident))
+            (expression
+              (integer))))
+        (expression
+          (ident))))))

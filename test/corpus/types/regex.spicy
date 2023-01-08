@@ -1,0 +1,77 @@
+================================================================================
+Regex
+================================================================================
+
+/abc/;
+/^Fo+Ba+r/;
+/X(..)(..)(..)Y/;
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (regexp)))
+  (statement
+    (expression
+      (regexp)))
+  (statement
+    (expression
+      (regexp))))
+
+================================================================================
+Capture groups
+================================================================================
+
+type X = unit {
+    x: /abc/ {
+        print $1;
+        }
+};
+
+type Y = unit {
+    y: /(a.c)(de*f)(h.j)/ &nosub {
+        print $1;
+        }
+};
+
+type Z = unit {
+    z: /(a.c)(de*f)(h.j)/ {
+        print $99;
+        }
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (regexp)
+      (block
+        (statement
+          (print
+            (expression
+              (capture_group)))))))
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (regexp)
+      (attribute
+        (attribute_name))
+      (block
+        (statement
+          (print
+            (expression
+              (capture_group)))))))
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (regexp)
+      (block
+        (statement
+          (print
+            (expression
+              (capture_group))))))))

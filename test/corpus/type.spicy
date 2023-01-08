@@ -1,0 +1,44 @@
+================================================================================
+Type declaration
+================================================================================
+type X = tuple<A, B>;
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (typename
+      (ident)
+      (typename
+        (ident))
+      (typename
+        (ident)))))
+
+================================================================================
+Tuple with named fields
+================================================================================
+global tu: tuple<a: int32, string, c: bool> = (1, "2", True);
+--------------------------------------------------------------------------------
+
+(module
+  (var_decl
+    (linkage)
+    (ident)
+    (typename
+      (ident)
+      (ident)
+      (typename
+        (ident))
+      (typename
+        (ident))
+      (ident)
+      (typename
+        (ident)))
+    (expression
+      (tuple
+        (expression
+          (integer))
+        (expression
+          (string))
+        (expression
+          (boolean))))))

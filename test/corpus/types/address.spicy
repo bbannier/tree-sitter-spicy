@@ -1,0 +1,103 @@
+================================================================================
+Address
+================================================================================
+
+public type test = unit {
+    f1: addr &ipv4;
+    f2: addr &ipv4 &byte-order=spicy::ByteOrder::Little;
+
+    on %done {
+        print self.f1;
+        }
+};
+
+global a1 = 1.2.3.4;
+global a2 = [2001:db8:85a3:8d3:1319:8a2e:370:7348];
+
+assert a1.family() == spicy::AddressFamily::IPv4;
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (visibility)
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)))
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name))
+      (attribute
+        (attribute_name)
+        (expression
+          (ident
+            (ident
+              (ident))))))
+    (hook_decl
+      (ident)
+      (statement
+        (block
+          (statement
+            (print
+              (expression
+                (type_member
+                  (expression
+                    (self_id))
+                  (type_member_ident
+                    (ident))))))))))
+  (var_decl
+    (linkage)
+    (ident)
+    (expression
+      (address)))
+  (var_decl
+    (linkage)
+    (ident)
+    (expression
+      (address)))
+  (statement
+    (assert
+      (expression
+        (binary_op
+          (expression
+            (type_member_call
+              (type_member
+                (expression
+                  (ident))
+                (type_member_ident
+                  (ident)))))
+          (expression
+            (ident
+              (ident
+                (ident)))))))))
+
+================================================================================
+Network
+================================================================================
+
+[2001:0db8::1428:57ab]/48;
+192.168.1.0/24;
+[::192.168.1.0]/24;
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (network
+        (address))))
+  (statement
+    (expression
+      (network
+        (address))))
+  (statement
+    (expression
+      (network
+        (address)))))

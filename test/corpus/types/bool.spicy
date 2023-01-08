@@ -1,0 +1,81 @@
+================================================================================
+Bool
+================================================================================
+
+global x: bool = True;
+
+assert True == x;
+assert False != x;
+assert ! False;
+assert x == x;
+assert x && True;
+assert ! (x && False);
+assert False || x;
+
+--------------------------------------------------------------------------------
+
+(module
+  (var_decl
+    (linkage)
+    (ident)
+    (typename
+      (ident))
+    (expression
+      (boolean)))
+  (statement
+    (assert
+      (expression
+        (binary_op
+          (expression
+            (boolean))
+          (expression
+            (ident))))))
+  (statement
+    (assert
+      (expression
+        (binary_op
+          (expression
+            (boolean))
+          (expression
+            (ident))))))
+  (statement
+    (assert
+      (expression
+        (unary_op
+          (expression
+            (boolean))))))
+  (statement
+    (assert
+      (expression
+        (binary_op
+          (expression
+            (ident))
+          (expression
+            (ident))))))
+  (statement
+    (assert
+      (expression
+        (binary_op
+          (expression
+            (ident))
+          (expression
+            (boolean))))))
+  (statement
+    (assert
+      (expression
+        (unary_op
+          (expression
+            (expression
+              (binary_op
+                (expression
+                  (ident))
+                (expression
+                  (boolean)))))))))
+  (statement
+    (assert
+      (expression
+        (binary_op
+          (expression
+            (boolean))
+          (expression
+            (ident)))))))

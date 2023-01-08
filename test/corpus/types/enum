@@ -1,0 +1,37 @@
+================================================================================
+Enum
+================================================================================
+
+public type E = enum {};
+
+public type E = enum {
+    A,
+    B
+};
+
+public type E = enum {
+    A = 1,
+    B,
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (enum_decl
+    (visibility)
+    (ident))
+  (enum_decl
+    (visibility)
+    (ident)
+    (enum_label
+      (ident))
+    (enum_label
+      (ident)))
+  (enum_decl
+    (visibility)
+    (ident)
+    (enum_label
+      (ident)
+      (integer))
+    (enum_label
+      (ident))))

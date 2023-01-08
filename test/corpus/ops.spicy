@@ -1,0 +1,22 @@
+================================================================================
+Operator precedence
+================================================================================
+0 < a && a < 1;
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (binary_op
+        (expression
+          (binary_op
+            (expression
+              (integer))
+            (expression
+              (ident))))
+        (expression
+          (binary_op
+            (expression
+              (ident))
+            (expression
+              (integer))))))))

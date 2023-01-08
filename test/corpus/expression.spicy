@@ -1,0 +1,198 @@
+================================================================================
+New
+================================================================================
+
+new b"My";
+global b1: bytes& = new b"My";
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (new
+        (expression
+          (bytes)))))
+  (var_decl
+    (linkage)
+    (ident)
+    (typename
+      (ident))
+    (expression
+      (new
+        (expression
+          (bytes))))))
+
+================================================================================
+Array access
+================================================================================
+
+abc12[12];
+abc12[foo];
+self.foo[1];
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (array_access
+        (expression
+          (ident))
+        (expression
+          (integer)))))
+  (statement
+    (expression
+      (array_access
+        (expression
+          (ident))
+        (expression
+          (ident)))))
+  (statement
+    (expression
+      (array_access
+        (expression
+          (type_member
+            (expression
+              (self_id))
+            (type_member_ident
+              (ident))))
+        (expression
+          (integer))))))
+
+================================================================================
+Ternary
+================================================================================
+
+a ? 1 : 2.0;
+1 ? 2.0 : b"" ? "" : /./;
+self?.b ? 2.0 : b"noe_b";
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (ternary
+        (expression
+          (ident))
+        (expression
+          (integer))
+        (expression
+          (real)))))
+  (statement
+    (expression
+      (ternary
+        (expression
+          (ternary
+            (expression
+              (integer))
+            (expression
+              (real))
+            (expression
+              (bytes))))
+        (expression
+          (string))
+        (expression
+          (regexp)))))
+  (statement
+    (expression
+      (ternary
+        (expression
+          (type_member_check
+            (expression
+              (self_id))
+            (ident)))
+        (expression
+          (real))
+        (expression
+          (bytes))))))
+
+================================================================================
+List comprehension
+================================================================================
+
+[X(x) for x in xs];
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (list_comp
+        (expression
+          (function_call
+            (ident)
+            (expression
+              (ident))))
+        (ident)
+        (expression
+          (ident))))))
+
+================================================================================
+Set membership
+================================================================================
+1 in set(1, 2, 3);
+1 !in set(1, 2, 3);
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (expression
+      (contains
+        (expression
+          (integer))
+        (expression
+          (function_call
+            (ident)
+            (expression
+              (integer))
+            (expression
+              (integer))
+            (expression
+              (integer)))))))
+  (statement
+    (expression
+      (contains_not
+        (expression
+          (integer))
+        (expression
+          (function_call
+            (ident)
+            (expression
+              (integer))
+            (expression
+              (integer))
+            (expression
+              (integer))))))))
+
+================================================================================
+Visibility
+================================================================================
+const a = 1;
+public const b = 1;
+global c = 3;
+public global d = 3;
+--------------------------------------------------------------------------------
+
+(module
+  (var_decl
+    (linkage)
+    (ident)
+    (expression
+      (integer)))
+  (var_decl
+    (visibility)
+    (linkage)
+    (ident)
+    (expression
+      (integer)))
+  (var_decl
+    (linkage)
+    (ident)
+    (expression
+      (integer)))
+  (var_decl
+    (visibility)
+    (linkage)
+    (ident)
+    (expression
+      (integer))))

@@ -1,0 +1,81 @@
+================================================================================
+Function return
+================================================================================
+
+function f() {
+    i += 1;
+    return;
+}
+
+function g() : int64 {
+    return 42;
+}
+
+--------------------------------------------------------------------------------
+
+(module
+  (function_decl
+    (ident)
+    (block
+      (statement
+        (expression
+          (assign
+            (expression
+              (ident))
+            (expression
+              (integer)))))
+      (statement
+        (return))))
+  (function_decl
+    (ident)
+    (typename
+      (ident))
+    (block
+      (statement
+        (return
+          (expression
+            (integer)))))))
+
+================================================================================
+Function attribute
+================================================================================
+
+function foo(x: uint8) &cxxname="foo" {}
+
+--------------------------------------------------------------------------------
+
+(module
+  (function_decl
+    (ident)
+    (ident)
+    (typename
+      (ident))
+    (attribute
+      (attribute_name)
+      (expression
+        (string)))
+    (block)))
+
+================================================================================
+Function parameter inout specifier
+================================================================================
+
+function foo(x: uint8, inout y: uint8, inout z: uint8) {}
+
+--------------------------------------------------------------------------------
+
+(module
+  (function_decl
+    (ident)
+    (ident)
+    (typename
+      (ident))
+    (inout)
+    (ident)
+    (typename
+      (ident))
+    (inout)
+    (ident)
+    (typename
+      (ident))
+    (block)))

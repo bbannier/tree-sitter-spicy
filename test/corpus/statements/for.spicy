@@ -1,0 +1,111 @@
+================================================================================
+For
+================================================================================
+
+for ( i in [1,2,3] )
+    print i;
+
+local v = [1,2,3];
+
+for ( i in v ) {
+    print i;
+}
+
+for ( i in [] )
+    print i;
+
+for ( i in [1,2,3] ) {
+    if ( i == 2 )
+        continue;
+
+    print i;
+
+    if ( i == 4 )
+        break;
+}
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (for
+      (ident)
+      (expression
+        (list
+          (expression
+            (integer))
+          (expression
+            (integer))
+          (expression
+            (integer))))
+      (statement
+        (print
+          (expression
+            (ident))))))
+  (var_decl
+    (linkage)
+    (ident)
+    (expression
+      (list
+        (expression
+          (integer))
+        (expression
+          (integer))
+        (expression
+          (integer)))))
+  (statement
+    (for
+      (ident)
+      (expression
+        (ident))
+      (statement
+        (block
+          (statement
+            (print
+              (expression
+                (ident))))))))
+  (statement
+    (for
+      (ident)
+      (expression
+        (list))
+      (statement
+        (print
+          (expression
+            (ident))))))
+  (statement
+    (for
+      (ident)
+      (expression
+        (list
+          (expression
+            (integer))
+          (expression
+            (integer))
+          (expression
+            (integer))))
+      (statement
+        (block
+          (statement
+            (if
+              (expression
+                (binary_op
+                  (expression
+                    (ident))
+                  (expression
+                    (integer))))
+              (statement
+                (continue))))
+          (statement
+            (print
+              (expression
+                (ident))))
+          (statement
+            (if
+              (expression
+                (binary_op
+                  (expression
+                    (ident))
+                  (expression
+                    (integer))))
+              (statement
+                (break)))))))))

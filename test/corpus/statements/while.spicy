@@ -1,0 +1,80 @@
+================================================================================
+While
+================================================================================
+
+while ( i++ < 5 ) ;
+
+while ( local j = 2; j++ < 5 ) ;
+
+while ( local k = 0; k++ < 5 ) {
+}
+
+while ( local k = 0; k++ < 5 ) {
+}
+else ;
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (while
+      (expression
+        (binary_op
+          (expression
+            (post
+              (expression
+                (ident))))
+          (expression
+            (integer))))
+      (statement)))
+  (statement
+    (while
+      (var_decl
+        (linkage)
+        (ident)
+        (expression
+          (integer)))
+      (expression
+        (binary_op
+          (expression
+            (post
+              (expression
+                (ident))))
+          (expression
+            (integer))))
+      (statement)))
+  (statement
+    (while
+      (var_decl
+        (linkage)
+        (ident)
+        (expression
+          (integer)))
+      (expression
+        (binary_op
+          (expression
+            (post
+              (expression
+                (ident))))
+          (expression
+            (integer))))
+      (statement
+        (block))))
+  (statement
+    (while
+      (var_decl
+        (linkage)
+        (ident)
+        (expression
+          (integer)))
+      (expression
+        (binary_op
+          (expression
+            (post
+              (expression
+                (ident))))
+          (expression
+            (integer))))
+      (statement
+        (block))
+      (statement))))

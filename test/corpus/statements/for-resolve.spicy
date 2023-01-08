@@ -1,0 +1,70 @@
+================================================================================
+For resolve
+================================================================================
+
+public type caller = unit {
+  oneMember : usefulType { callAForLoop($$); }
+ };
+
+type usefulType = unit {
+ contentValue: bytes &size = 7;
+};
+
+function callAForLoop(oneMember: usefulType) {
+      for ( idx in oneMember.contentValue) {
+        print "%02X" % idx;
+      }
+}
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (visibility)
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (block
+        (statement
+          (expression
+            (function_call
+              (ident)
+              (expression
+                (dd))))))))
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))))
+  (function_decl
+    (ident)
+    (ident)
+    (typename
+      (ident))
+    (block
+      (statement
+        (for
+          (ident)
+          (expression
+            (type_member
+              (expression
+                (ident))
+              (type_member_ident
+                (ident))))
+          (statement
+            (block
+              (statement
+                (print
+                  (expression
+                    (binary_op
+                      (expression
+                        (string))
+                      (expression
+                        (ident)))))))))))))

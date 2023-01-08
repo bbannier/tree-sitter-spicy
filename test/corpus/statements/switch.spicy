@@ -1,0 +1,107 @@
+================================================================================
+Switch
+================================================================================
+
+switch ( 2 ) {
+    case 1: assert False;
+    case 2: ++x;
+    default: assert False;
+}
+
+switch ( 3 ) {
+    case 1: assert False;
+    case 2: assert False;
+    default: ++x;
+}
+
+switch ( 3 ) {
+    case 1: assert False;
+    case 2: assert False;
+}
+
+switch ( 3 ) {
+    case 1, 2 : assert False;
+}
+
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (switch
+      (expression
+        (integer))
+      (case
+        (expression
+          (integer))
+        (statement
+          (assert
+            (expression
+              (boolean)))))
+      (case
+        (expression
+          (integer))
+        (statement
+          (expression
+            (pre
+              (expression
+                (ident))))))
+      (case
+        (statement
+          (assert
+            (expression
+              (boolean)))))))
+  (statement
+    (switch
+      (expression
+        (integer))
+      (case
+        (expression
+          (integer))
+        (statement
+          (assert
+            (expression
+              (boolean)))))
+      (case
+        (expression
+          (integer))
+        (statement
+          (assert
+            (expression
+              (boolean)))))
+      (case
+        (statement
+          (expression
+            (pre
+              (expression
+                (ident))))))))
+  (statement
+    (switch
+      (expression
+        (integer))
+      (case
+        (expression
+          (integer))
+        (statement
+          (assert
+            (expression
+              (boolean)))))
+      (case
+        (expression
+          (integer))
+        (statement
+          (assert
+            (expression
+              (boolean)))))))
+  (statement
+    (switch
+      (expression
+        (integer))
+      (case
+        (expression
+          (integer))
+        (expression
+          (integer))
+        (statement
+          (assert
+            (expression
+              (boolean))))))))

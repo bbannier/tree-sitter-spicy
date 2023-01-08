@@ -1,0 +1,845 @@
+================================================================================
+Unit parameters
+================================================================================
+type X = unit(z: uint8) {
+    x: X(z);
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (params
+      (ident)
+      (typename
+        (ident)))
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (expression
+        (ident)))))
+
+================================================================================
+Unit var
+================================================================================
+type A = unit {
+    var x: uint8;
+    var x: bytes &optional;
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (var_decl
+      (linkage)
+      (ident)
+      (typename
+        (ident)))
+    (var_decl
+      (linkage)
+      (ident)
+      (typename
+        (ident))
+      (optional))))
+
+================================================================================
+Vector field
+================================================================================
+
+type Test = unit {
+    a: b"XXX"[2];
+    b: LINE[4/2];
+    c: (uint8(42))[];
+    d: uint8[];
+    d: A()[];
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (vector
+        (bytes)
+        (expression
+          (integer))))
+    (field_decl
+      (ident)
+      (vector
+        (typename
+          (ident))
+        (expression
+          (binary_op
+            (expression
+              (integer))
+            (expression
+              (integer))))))
+    (field_decl
+      (ident)
+      (vector
+        (typename
+          (ident))
+        (expression
+          (integer))))
+    (field_decl
+      (ident)
+      (typename
+        (ident)))
+    (field_decl
+      (ident)
+      (typename
+        (ident)))))
+
+================================================================================
+Sink
+================================================================================
+
+type Main = unit {
+    raw: bytes &eod -> self.data;
+    sink data;
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name))
+      (sink
+        (self_id)
+        (ident)))
+    (sink_decl
+      (ident))))
+
+================================================================================
+Hook decl
+================================================================================
+
+type Sub = unit {
+    s: bytes &eod;
+
+    on %done { print self.s; }
+    on %gap(seq: uint64, len: uint64)  { 1; }
+    on %skipped(seq: uint64) 2;
+    on s { 3; }
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)))
+    (hook_decl
+      (ident)
+      (statement
+        (block
+          (statement
+            (print
+              (expression
+                (type_member
+                  (expression
+                    (self_id))
+                  (type_member_ident
+                    (ident)))))))))
+    (hook_decl
+      (ident)
+      (ident)
+      (typename
+        (ident))
+      (ident)
+      (typename
+        (ident))
+      (statement
+        (block
+          (statement
+            (expression
+              (integer))))))
+    (hook_decl
+      (ident)
+      (ident)
+      (typename
+        (ident))
+      (statement
+        (expression
+          (integer))))
+    (hook_decl
+      (ident)
+      (statement
+        (block
+          (statement
+            (expression
+              (integer))))))))
+
+================================================================================
+Foreach hook
+================================================================================
+
+type Test = unit {
+    on lines foreach {}
+    on %done {}
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (hook_decl
+      (ident)
+      (foreach
+        (block)))
+    (hook_decl
+      (ident)
+      (statement
+        (block)))))
+
+================================================================================
+Checked field access
+================================================================================
+
+type X = unit {
+    f1: uint8 {
+        assert self?.f1;
+        assert self.?f1;
+    }
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (block
+        (statement
+          (assert
+            (expression
+              (type_member_check
+                (expression
+                  (self_id))
+                (ident)))))
+        (statement
+          (assert
+            (expression
+              (type_member_checked
+                (expression
+                  (self_id))
+                (ident)))))))))
+
+================================================================================
+Debug hook
+================================================================================
+
+type Test = unit {
+    a: uint8[] %debug {}
+    on %done %debug {}
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name))
+      (block))
+    (hook_decl
+      (ident)
+      (is_debug)
+      (statement
+        (block)))))
+
+================================================================================
+External hooks
+================================================================================
+
+type test = unit {
+    a: bytes &size=4;
+};
+
+on test::a {}
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))))
+  (hook_decl
+    (ident
+      (ident))
+    (statement
+      (block))))
+
+================================================================================
+Imported hooks
+================================================================================
+
+on Mini::Foo::a {}
+on Mini::Foo::b {}
+on Mini::Foo::%init {}
+
+--------------------------------------------------------------------------------
+
+(module
+  (hook_decl
+    (ident
+      (ident
+        (ident)))
+    (statement
+      (block)))
+  (hook_decl
+    (ident
+      (ident
+        (ident)))
+    (statement
+      (block)))
+  (hook_decl
+    (ident
+      (ident))
+    (ident)
+    (statement
+      (block))))
+
+================================================================================
+Hook priorities
+================================================================================
+
+type tA = unit {
+       a: bytes &size=5 { }
+       on a priority=7 { }
+};
+
+on tA::a priority=-5 { }
+on tA::a priority=15 { }
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))
+      (block))
+    (hook_decl
+      (ident)
+      (hook_priority
+        (integer))
+      (statement
+        (block))))
+  (hook_decl
+    (ident
+      (ident))
+    (hook_priority
+      (integer))
+    (statement
+      (block)))
+  (hook_decl
+    (ident
+      (ident))
+    (hook_priority
+      (integer))
+    (statement
+      (block))))
+
+================================================================================
+Vector fields
+================================================================================
+
+type Message = unit {
+    headers:    (Header(self))[];
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (vector
+        (typename
+          (ident))
+        (expression
+          (self_id))))))
+
+================================================================================
+Unit parameter defaults
+================================================================================
+
+type TCAPTag = unit(consume: bool = False) {};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (params
+      (ident)
+      (typename
+        (ident))
+      (expression
+        (boolean)))))
+
+================================================================================
+Unit parameter forward
+================================================================================
+
+type T2 = unit(inout t: Test) {
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (params
+      (inout)
+      (ident)
+      (typename
+        (ident)))))
+
+================================================================================
+Switch
+================================================================================
+
+type test1 = unit {
+       switch ( self.a ) {
+           b"1" ->  {
+                       b: bytes &size=1;
+                       c: bytes &size=3;
+                    }
+           b"2" ->  {
+                       d: bytes &size=1;
+                       e: bytes &size=3;
+                    }
+           *    -> f: bytes &size=4;
+           };
+};
+
+type test2 = unit(x: uint8) {
+    switch ( self.a ) {
+        b"1" -> : uint8;
+        b"2" -> : test2(x);
+    } &size=2;
+};
+
+type test3 = unit() {
+    switch {
+        -> a: A;
+    };
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (unit_switch
+      (expression
+        (type_member
+          (expression
+            (self_id))
+          (type_member_ident
+            (ident))))
+      (unit_switch_case
+        (expression
+          (bytes))
+        (field_decl
+          (ident)
+          (typename
+            (ident))
+          (attribute
+            (attribute_name)
+            (expression
+              (integer))))
+        (field_decl
+          (ident)
+          (typename
+            (ident))
+          (attribute
+            (attribute_name)
+            (expression
+              (integer)))))
+      (unit_switch_case
+        (expression
+          (bytes))
+        (field_decl
+          (ident)
+          (typename
+            (ident))
+          (attribute
+            (attribute_name)
+            (expression
+              (integer))))
+        (field_decl
+          (ident)
+          (typename
+            (ident))
+          (attribute
+            (attribute_name)
+            (expression
+              (integer)))))
+      (unit_switch_case
+        (field_decl
+          (ident)
+          (typename
+            (ident))
+          (attribute
+            (attribute_name)
+            (expression
+              (integer)))))))
+  (type_decl
+    (ident)
+    (params
+      (ident)
+      (typename
+        (ident)))
+    (unit_switch
+      (expression
+        (type_member
+          (expression
+            (self_id))
+          (type_member_ident
+            (ident))))
+      (unit_switch_case
+        (expression
+          (bytes))
+        (field_decl
+          (typename
+            (ident))))
+      (unit_switch_case
+        (expression
+          (bytes))
+        (field_decl
+          (typename
+            (ident))
+          (expression
+            (ident))))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))))
+  (type_decl
+    (ident)
+    (params)
+    (unit_switch
+      (unit_switch_case
+        (field_decl
+          (ident)
+          (typename
+            (ident)))))))
+
+================================================================================
+Switch if
+================================================================================
+
+type test = unit {
+  switch {
+      * -> : /./
+  } if ( 1 );
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (unit_switch
+      (unit_switch_case
+        (field_decl
+          (regexp)))
+      (expression
+        (integer)))))
+
+================================================================================
+Switch void
+================================================================================
+
+type test = unit {
+       switch (1) {
+           1 ->  : void {}
+       };
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (unit_switch
+      (expression
+        (integer))
+      (unit_switch_case
+        (expression
+          (integer))
+        (field_decl
+          (void)
+          (block))))))
+
+================================================================================
+Switch multicase
+================================================================================
+
+type test = unit {
+       switch (1) {
+           1, 2,3 ->  : /./;
+       };
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (unit_switch
+      (expression
+        (integer))
+      (unit_switch_case
+        (expression
+          (integer))
+        (expression
+          (integer))
+        (expression
+          (integer))
+        (field_decl
+          (regexp))))))
+
+================================================================================
+Field types w/ parse attributes
+================================================================================
+
+type Foo = unit {
+    x: (bytes &parse-from=b"abc")[3];
+    y: (bytes &size=2)[];
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (ident)
+      (vector
+        (typename
+          (ident))
+        (attribute
+          (attribute_name)
+          (expression
+            (bytes)))
+        (integer)))
+    (field_decl
+      (ident)
+      (vector
+        (typename
+          (ident))
+        (attribute
+          (attribute_name)
+          (expression
+            (integer)))))))
+
+================================================================================
+Skip fields
+================================================================================
+
+public type Foo = unit {
+    : skip bytes &eod;
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (visibility)
+    (ident)
+    (field_decl
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)))))
+
+================================================================================
+Unit attributes
+================================================================================
+
+type Foo = unit {
+} &max-size=1 &size=2;
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (attribute
+      (attribute_name)
+      (expression
+        (integer)))
+    (attribute
+      (attribute_name)
+      (expression
+        (integer)))))
+
+================================================================================
+Bitfield
+================================================================================
+
+type Foo = unit {
+: bitfield(16) {
+    a: 0..8;
+    b: 9..15;
+} {}
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident)
+    (field_decl
+      (bitfield
+        (integer)
+        (ident)
+        (integer)
+        (integer)
+        (ident)
+        (integer)
+        (integer))
+      (block))))
+
+================================================================================
+Context
+================================================================================
+
+module test;
+
+type Context = int32;
+
+public type P = unit(p: uint8) {
+    %context = Context;
+
+    x: uint8 &requires=$$==1 &convert=p;
+};
+
+public type X = unit() {
+    p: P(42);
+};
+--------------------------------------------------------------------------------
+
+(module
+  (module_decl
+    (ident))
+  (type_decl
+    (ident)
+    (typename
+      (ident)))
+  (type_decl
+    (visibility)
+    (ident)
+    (params
+      (ident)
+      (typename
+        (ident)))
+    (attribute
+      (attribute_name)
+      (expression
+        (ident)))
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (binary_op
+            (expression
+              (dd))
+            (expression
+              (integer)))))
+      (attribute
+        (attribute_name)
+        (expression
+          (ident)))))
+  (type_decl
+    (visibility)
+    (ident)
+    (params)
+    (field_decl
+      (ident)
+      (typename
+        (ident))
+      (expression
+        (integer)))))
+
+================================================================================
+Default value
+================================================================================
+module foo;
+type X = unit {
+  var x: uint8 &default=42;
+};
+--------------------------------------------------------------------------------
+
+(module
+  (module_decl
+    (ident))
+  (type_decl
+    (ident)
+    (var_decl
+      (linkage)
+      (ident)
+      (typename
+        (ident))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer))))))
+
+================================================================================
+Struct init
+================================================================================
+global x: X = [$a = 1, $b = 2];
+--------------------------------------------------------------------------------
+
+(module
+  (var_decl
+    (linkage)
+    (ident)
+    (typename
+      (ident))
+    (expression
+      (struct_ctr
+        (expression
+          (integer))
+        (expression
+          (integer))))))
