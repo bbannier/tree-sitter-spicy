@@ -333,7 +333,17 @@ module.exports = grammar({
     break: _ => "break",
 
     switch: $ =>
-      seq("switch", seq("(", $.expression, ")"), "{", repeat($.case), "}"),
+      seq(
+        "switch",
+        seq(
+          "(",
+          choice($.expression, seq($.linkage, $.ident, "=", $.expression)),
+          ")",
+        ),
+        "{",
+        repeat($.case),
+        "}",
+      ),
 
     case: $ =>
       seq(

@@ -105,3 +105,24 @@ switch ( 3 ) {
           (assert
             (expression
               (boolean))))))))
+
+================================================================================
+Switch with named capture
+================================================================================
+switch (local x = 1) {
+        case 1: {}
+}
+--------------------------------------------------------------------------------
+
+(module
+  (statement
+    (switch
+      (linkage)
+      (ident)
+      (expression
+        (integer))
+      (case
+        (expression
+          (integer))
+        (statement
+          (block))))))
