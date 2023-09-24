@@ -1,5 +1,4 @@
-tree-sitter-spicy
-=================
+# tree-sitter-spicy
 
 This is a [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar for
 the [Spicy language](https://docs.zeek.org/projects/spicy/en/latest/).

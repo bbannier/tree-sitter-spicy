@@ -4,7 +4,7 @@ Assert
 
 assert 1;
 assert 1 == 1;
-assert 1 != 0 : "my error"; 
+assert 1 != 0 : "my error";
 assert-exception b3 == b"XXX";
 
 --------------------------------------------------------------------------------
