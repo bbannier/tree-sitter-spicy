@@ -839,7 +839,9 @@ global x: X = [$a = 1, $b = 2];
       (ident))
     (expression
       (struct_ctr
+        (struct_ctr_id)
         (expression
           (integer))
+        (struct_ctr_id)
         (expression
           (integer))))))

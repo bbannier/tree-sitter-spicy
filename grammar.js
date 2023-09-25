@@ -572,8 +572,8 @@ module.exports = grammar({
     capture_group: _ => token(/\$\d+/),
 
     struct_ctr: $ =>
-      seq("[", commaSep1(seq($._struct_ctr_id, "=", $.expression)), "]"),
-    _struct_ctr_id: _ => /\$[a-zA-Z_]|\$[a-zA-Z_][a-zA-Z_0-9]*[a-zA-Z_0-9]/,
+      seq("[", commaSep1(seq($.struct_ctr_id, "=", $.expression)), "]"),
+    struct_ctr_id: _ => /\$[a-zA-Z_]|\$[a-zA-Z_][a-zA-Z_0-9]*[a-zA-Z_0-9]/,
 
     // This is borrowed from the Python grammar,
     // https://github.com/tree-sitter/tree-sitter-python/blob/master/grammar.js.
