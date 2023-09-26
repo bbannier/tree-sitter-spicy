@@ -6,7 +6,7 @@ module.exports = grammar({
   extras: $ => [
     $.comment,
     $.BTEST,
-    $.preprocessor,
+    $.preproc,
     /[\s\f\uFEFF\u2060\u200B]|\\\r?\n/,
   ],
 
@@ -586,7 +586,16 @@ module.exports = grammar({
     // We match BTest control commands everywhere since they are present in the upstream tests.
     BTEST: _ => token(seq("@TEST", /.*/)),
 
-    preprocessor: _ => token(choice(seq("@if", /.*/), "@endif")),
+    preproc: $ =>
+      seq(
+        "@if",
+        $.expression,
+        "\n",
+        optional($.statement),
+        "\n",
+        optional(seq("@else", "\n", optional($.statement), "\n")),
+        "@endif",
+      ),
   },
 });
 

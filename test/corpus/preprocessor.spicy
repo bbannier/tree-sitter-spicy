@@ -7,11 +7,12 @@ Ifdef
 --------------------------------------------------------------------------------
 
 (module
-  (preprocessor)
-  (statement
+  (preproc
     (expression
-      (integer)))
-  (preprocessor))
+      (ident))
+    (statement
+      (expression
+        (integer)))))
 
 ================================================================================
 Comparison
@@ -22,8 +23,52 @@ Comparison
 --------------------------------------------------------------------------------
 
 (module
-  (preprocessor)
-  (statement
+  (preproc
     (expression
-      (integer)))
-  (preprocessor))
+      (binary_op
+        (expression
+          (ident))
+        (expression
+          (integer))))
+    (statement
+      (expression
+        (integer)))))
+
+================================================================================
+Not
+================================================================================
+@if ! 1
+123;
+@endif
+--------------------------------------------------------------------------------
+
+(module
+  (preproc
+    (expression
+      (unary_op
+        (expression
+          (integer))))
+    (statement
+      (expression
+        (integer)))))
+
+================================================================================
+Else
+================================================================================
+@if 1
+123;
+@else
+123;
+@endif
+--------------------------------------------------------------------------------
+
+(module
+  (preproc
+    (expression
+      (integer))
+    (statement
+      (expression
+        (integer)))
+    (statement
+      (expression
+        (integer)))))
