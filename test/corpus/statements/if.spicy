@@ -102,10 +102,8 @@ type TestUnit3 = unit() {
         (attribute_name)
         (expression
           (integer)))
-      (if
-        (expression
-          (boolean))
-        (statement))))
+      (expression
+        (boolean))))
   (type_decl
     (ident)
     (params)
@@ -125,10 +123,8 @@ type TestUnit3 = unit() {
         (attribute_name)
         (expression
           (integer)))
-      (if
-        (expression
-          (boolean))
-        (statement))))
+      (expression
+        (boolean))))
   (type_decl
     (ident)
     (params)
@@ -148,7 +144,5 @@ type TestUnit3 = unit() {
         (attribute_name)
         (expression
           (integer)))
-      (if
-        (expression
-          (boolean))
-        (statement)))))
+      (expression
+        (boolean)))))

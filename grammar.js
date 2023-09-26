@@ -206,8 +206,12 @@ module.exports = grammar({
           ),
           optional(token(seq("[", "]"))),
           field("attributes", repeat($.attribute)),
+          field(
+            "conditional",
+            optional(prec(2000, seq("if", "(", $.expression, ")"))),
+          ),
           optional(prec.left(seq("->", $.sink))),
-          choice(";", optional(choice($.if, $.foreach, $.block))),
+          choice(";", optional(choice($.foreach, $.block))),
         ),
       ),
 
