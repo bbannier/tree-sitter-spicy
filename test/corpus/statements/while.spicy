@@ -2,16 +2,16 @@
 While
 ================================================================================
 
-while ( i++ < 5 ) ;
+while ( i++ < 5 ) 1;
 
-while ( local j = 2; j++ < 5 ) ;
-
-while ( local k = 0; k++ < 5 ) {
-}
+while ( local j = 2; j++ < 5 ) 1;
 
 while ( local k = 0; k++ < 5 ) {
 }
-else ;
+
+while ( local k = 0; k++ < 5 ) {
+}
+else 0;
 
 --------------------------------------------------------------------------------
 
@@ -26,7 +26,9 @@ else ;
                 (ident))))
           (expression
             (integer))))
-      (statement)))
+      (statement
+        (expression
+          (integer)))))
   (statement
     (while
       (var_decl
@@ -42,7 +44,9 @@ else ;
                 (ident))))
           (expression
             (integer))))
-      (statement)))
+      (statement
+        (expression
+          (integer)))))
   (statement
     (while
       (var_decl
@@ -77,4 +81,6 @@ else ;
             (integer))))
       (statement
         (block))
-      (statement))))
+      (statement
+        (expression
+          (integer))))))

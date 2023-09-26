@@ -98,6 +98,7 @@ module.exports = grammar({
         "{",
         repeat($.field_decl),
         "}",
+        ";",
       ),
 
     library_type: $ => seq("__library_type", "(", $.string, ")"),
@@ -246,7 +247,6 @@ module.exports = grammar({
           $.for,
           $.if,
           $.switch,
-          ";",
         ),
       ),
 
