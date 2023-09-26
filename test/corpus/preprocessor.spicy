@@ -10,7 +10,7 @@ Ifdef
   (preproc
     (expression
       (ident))
-    (statement
+    body: (statement
       (expression
         (integer)))))
 
@@ -26,11 +26,11 @@ Comparison
   (preproc
     (expression
       (binary_op
-        (expression
+        lhs: (expression
           (ident))
-        (expression
+        rhs: (expression
           (integer))))
-    (statement
+    body: (statement
       (expression
         (integer)))))
 
@@ -39,6 +39,7 @@ Not
 ================================================================================
 @if ! 1
 123;
+1;
 @endif
 --------------------------------------------------------------------------------
 
@@ -48,7 +49,10 @@ Not
       (unary_op
         (expression
           (integer))))
-    (statement
+    body: (statement
+      (expression
+        (integer)))
+    body: (statement
       (expression
         (integer)))))
 
@@ -59,6 +63,7 @@ Else
 123;
 @else
 123;
+1;
 @endif
 --------------------------------------------------------------------------------
 
@@ -71,4 +76,50 @@ Else
         (integer)))
     (statement
       (expression
+        (integer)))
+    (statement
+      (expression
         (integer)))))
+
+================================================================================
+In type
+================================================================================
+type X = unit {
+@if 1
+: bytes &size=1;
+@else
+: void ;
+@endif
+};
+--------------------------------------------------------------------------------
+
+(module
+  entities: (type_decl
+    name: (ident)
+    (preproc
+      (expression
+        (integer))
+      body: (field_decl
+        type_: (typename
+          (ident))
+        attributes: (attribute
+          attribute_name: (attribute_name)
+          attribute_value: (expression
+            (integer))))
+      body: (field_decl
+        type_: (void)))))
+
+================================================================================
+Around import
+================================================================================
+@if 1
+import foo;
+@endif
+--------------------------------------------------------------------------------
+
+(module
+  (preproc
+    (expression
+      (integer))
+    (import
+      (ident))))

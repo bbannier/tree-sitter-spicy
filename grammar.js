@@ -11,11 +11,10 @@ module.exports = grammar({
   ],
 
   rules: {
-    module: $ =>
-      field(
-        "entities",
-        repeat(choice($._decl, $.import, seq($.attribute, ";"), $.statement)),
-      ),
+    module: $ => field("entities", optional($._entities)),
+
+    _entities: $ =>
+      repeat1(choice($._decl, $.import, seq($.attribute, ";"), $.statement)),
 
     // Make this higher precedence than `statement` so we match a top-level decls directly.
     _decl: $ =>
@@ -591,11 +590,21 @@ module.exports = grammar({
         "@if",
         $.expression,
         "\n",
-        optional($.statement),
-        "\n",
-        optional(seq("@else", "\n", optional($.statement), "\n")),
+        optional($._in_preproc),
+        optional(seq("@else", "\n", optional($._in_preproc))),
         "@endif",
       ),
+
+    // Stuff we allow in preprocessor macros.
+    //
+    // - we allow anything which would be valid at module scope
+    // - since it is common we also allow field_decls so users can
+    //   conditionally define fields
+    //
+    // The important bit here is that anything we allow is terminated by `\n`
+    // so the following preprocessor macro is only expected on the next line.
+    _in_preproc: $ =>
+      field("body", seq(sep1(choice($._entities, $.field_decl), "\n"), "\n")),
   },
 });
 
