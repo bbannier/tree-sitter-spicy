@@ -92,12 +92,15 @@ Network
   (statement
     (expression
       (network
-        (address))))
+        (address)
+        (network_prefix))))
   (statement
     (expression
       (network
-        (address))))
+        (address)
+        (network_prefix))))
   (statement
     (expression
       (network
-        (address)))))
+        (address)
+        (network_prefix)))))

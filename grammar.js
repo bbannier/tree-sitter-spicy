@@ -549,7 +549,8 @@ module.exports = grammar({
         seq("[", "::", $._address4, "]"),
       ),
 
-    network: $ => prec(20, seq($.address, "/", /\d+/)),
+    network: $ => prec(20, seq($.address, "/", $.network_prefix)),
+    network_prefix: _ => /\d+/,
 
     port: _ => /\d+\/(tcp|udp|icmp)/,
 
