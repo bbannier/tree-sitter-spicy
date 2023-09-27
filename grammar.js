@@ -566,6 +566,7 @@ module.exports = grammar({
     map: $ =>
       seq(
         "map",
+        optional(seq("<", $.typename, ",", $.typename, ">")),
         "(",
         optional(commaSep1(seq($.expression, ":", $.expression))),
         ")",
