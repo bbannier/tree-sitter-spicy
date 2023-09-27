@@ -56,12 +56,12 @@ assert a1.family() == spicy::AddressFamily::IPv4;
     (linkage)
     (ident)
     (expression
-      (address)))
+      (address4)))
   (var_decl
     (linkage)
     (ident)
     (expression
-      (address)))
+      (address6)))
   (statement
     (assert
       (expression
@@ -92,15 +92,16 @@ Network
   (statement
     (expression
       (network
-        (address)
+        (address6)
         (network_prefix))))
   (statement
     (expression
       (network
-        (address)
+        (address4)
         (network_prefix))))
   (statement
     (expression
       (network
-        (address)
+        (address6
+          (address4))
         (network_prefix)))))

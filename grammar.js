@@ -385,7 +385,7 @@ module.exports = grammar({
           $.regexp,
           $.capture_group,
           $.struct_ctr,
-          $.address,
+          $._address,
           $.network,
           $.port,
           $.char,
@@ -541,15 +541,19 @@ module.exports = grammar({
 
     string: _ => /\"(\\.|[^\\"])*\"/,
 
-    address: $ => choice($._address4, $._address6),
-    _address4: _ => /\d+\.\d+\.\d+\.\d+/,
-    _address6: $ =>
-      choice(
-        token(seq("[", prec.left(sep1(/[a-fA-F0-9]+/, repeat1(":"))), "]")),
-        seq("[", "::", $._address4, "]"),
+    _address: $ => choice($.address4, $.address6),
+    address4: _ => /\d+\.\d+\.\d+\.\d+/,
+    address6: $ =>
+      seq(
+        "[",
+        choice(
+          token(seq(prec.left(sep1(/[a-fA-F0-9]+/, repeat1(":"))))),
+          seq("::", $.address4),
+        ),
+        "]",
       ),
 
-    network: $ => prec(20, seq($.address, "/", $.network_prefix)),
+    network: $ => prec(20, seq($._address, "/", $.network_prefix)),
     network_prefix: _ => /\d+/,
 
     port: _ => /\d+\/(tcp|udp|icmp)/,
