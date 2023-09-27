@@ -191,6 +191,7 @@ Foreach hook
 
 type Test = unit {
     on lines foreach {}
+    : uint8[] foreach {} {}
     on %done {}
 };
 --------------------------------------------------------------------------------
@@ -202,6 +203,12 @@ type Test = unit {
       (ident)
       (foreach
         (block)))
+    (field_decl
+      (typename
+        (ident))
+      (foreach
+        (block))
+      (block))
     (hook_decl
       (ident)
       (statement
