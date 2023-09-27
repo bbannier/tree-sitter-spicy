@@ -757,14 +757,15 @@ type Foo = unit {
   (type_decl
     (ident)
     (field_decl
-      (bitfield
-        (integer)
-        (ident)
-        (integer)
-        (integer)
-        (ident)
-        (integer)
-        (integer))
+      (typename
+        (bitfield
+          (integer)
+          (ident)
+          (integer)
+          (integer)
+          (ident)
+          (integer)
+          (integer)))
       (block))))
 
 ================================================================================

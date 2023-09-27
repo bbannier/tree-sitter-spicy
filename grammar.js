@@ -415,21 +415,24 @@ module.exports = grammar({
     typename: $ =>
       prec(
         4000,
-        seq(
-          $.ident,
-          repeat(
-            seq(
-              "<",
-              commaSep1(
-                seq(
-                  optional(field("name", seq($.ident, ":"))),
-                  field("type_", $.typename),
+        choice(
+          seq(
+            $.ident,
+            repeat(
+              seq(
+                "<",
+                commaSep1(
+                  seq(
+                    optional(field("name", seq($.ident, ":"))),
+                    field("type_", $.typename),
+                  ),
                 ),
+                ">",
               ),
-              ">",
             ),
+            repeat(choice("&", "[]")),
           ),
-          repeat(choice("&", "[]")),
+          $.bitfield,
         ),
       ),
 

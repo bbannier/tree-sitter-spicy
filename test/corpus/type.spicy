@@ -2,6 +2,10 @@
 Type declaration
 ================================================================================
 type X = tuple<A, B>;
+
+type X = bitfield(8) {
+    a: 0..7;
+};
 --------------------------------------------------------------------------------
 
 (module
@@ -12,7 +16,15 @@ type X = tuple<A, B>;
       (typename
         (ident))
       (typename
-        (ident)))))
+        (ident))))
+  (type_decl
+    (ident)
+    (typename
+      (bitfield
+        (integer)
+        (ident)
+        (integer)
+        (integer)))))
 
 ================================================================================
 Tuple with named fields
