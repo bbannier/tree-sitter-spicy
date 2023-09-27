@@ -760,12 +760,14 @@ type Foo = unit {
       (typename
         (bitfield
           (integer)
-          (ident)
-          (integer)
-          (integer)
-          (ident)
-          (integer)
-          (integer)))
+          (bitfield_field
+            (ident)
+            (integer)
+            (integer))
+          (bitfield_field
+            (ident)
+            (integer)
+            (integer))))
       (block))))
 
 ================================================================================

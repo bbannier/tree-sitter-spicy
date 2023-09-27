@@ -22,9 +22,10 @@ type X = bitfield(8) {
     (typename
       (bitfield
         (integer)
-        (ident)
-        (integer)
-        (integer)))))
+        (bitfield_field
+          (ident)
+          (integer)
+          (integer))))))
 
 ================================================================================
 Tuple with named fields
