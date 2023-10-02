@@ -1,0 +1,10 @@
+# --- path: foo.spicy ---
+module foo;
+import foo;
+#      ^ defined: 2
+
+# --- path: bar.spicy ---
+module bar;
+
+import foo;
+#      ^ defined: 2
