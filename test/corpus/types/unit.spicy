@@ -464,10 +464,16 @@ type test2 = unit(x: uint8) {
     } &size=2;
 };
 
-type test3 = unit() {
+type test3 = unit {
     switch {
         -> a: A;
     };
+};
+
+type test4 = unit {
+  switch {
+    -> a: A;
+  } &eod &size=1; # Multiple attributes.
 };
 --------------------------------------------------------------------------------
 
@@ -561,13 +567,27 @@ type test3 = unit() {
           (integer)))))
   (type_decl
     (ident)
-    (params)
     (unit_switch
       (unit_switch_case
         (field_decl
           (ident)
           (typename
-            (ident)))))))
+            (ident))))))
+  (type_decl
+    (ident)
+    (unit_switch
+      (unit_switch_case
+        (field_decl
+          (ident)
+          (typename
+            (ident))))
+      (attribute
+        (attribute_name))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer))))
+    (comment)))
 
 ================================================================================
 Switch if

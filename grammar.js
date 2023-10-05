@@ -149,7 +149,7 @@ module.exports = grammar({
         "{",
         repeat($.unit_switch_case),
         "}",
-        optional($.attribute),
+        repeat($.attribute),
         optional(seq("if", "(", $.expression, ")")),
         ";",
       ),
