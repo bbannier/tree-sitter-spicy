@@ -51,6 +51,58 @@ type X = bitfield(8) {
             (integer)))))))
 
 ================================================================================
+Bitfield with attribute
+================================================================================
+
+type X = unit {
+  : bitfield(8) {
+    a: 0..7 = 2;
+  } &bit-order=spicy::BitOrder::MSB0;
+};
+
+type X = bitfield(8) {
+  a: 0..7 = 2;
+} &bit-order=spicy::BitOrder::MSB0;
+--------------------------------------------------------------------------------
+
+(module
+  entities: (type_decl
+    name: (ident)
+    field: (field_decl
+      type_: (typename
+        (bitfield
+          (integer)
+          (bitfield_field
+            name: (ident)
+            (integer)
+            (integer)
+            value: (expression
+              (integer)))))
+      attributes: (attribute
+        attribute_name: (attribute_name)
+        attribute_value: (expression
+          (ident
+            (ident
+              (ident)))))))
+  entities: (type_decl
+    name: (ident)
+    (typename
+      (bitfield
+        (integer)
+        (bitfield_field
+          name: (ident)
+          (integer)
+          (integer)
+          value: (expression
+            (integer)))))
+    (attribute
+      attribute_name: (attribute_name)
+      attribute_value: (expression
+        (ident
+          (ident
+            (ident)))))))
+
+================================================================================
 Tuple with named fields
 ================================================================================
 global tu: tuple<a: int32, string, c: bool> = (1, "2", True);

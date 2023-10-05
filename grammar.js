@@ -68,7 +68,11 @@ module.exports = grammar({
         "type",
         field("name", $.ident),
         "=",
-        choice($._unit_decl, $.library_type, $.typename),
+        choice(
+          $._unit_decl,
+          $.library_type,
+          seq($.typename, repeat($.attribute)),
+        ),
         ";",
       ),
 
