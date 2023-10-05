@@ -28,6 +28,29 @@ type X = bitfield(8) {
           (integer))))))
 
 ================================================================================
+Bitfield with literal values
+================================================================================
+
+type X = bitfield(8) {
+  a: 0..7 = 2;
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  entities: (type_decl
+    name: (ident)
+    (typename
+      (bitfield
+        (integer)
+        (bitfield_field
+          name: (ident)
+          (integer)
+          (integer)
+          value: (expression
+            (integer)))))))
+
+================================================================================
 Tuple with named fields
 ================================================================================
 global tu: tuple<a: int32, string, c: bool> = (1, "2", True);

@@ -484,9 +484,14 @@ module.exports = grammar({
       seq("bitfield", "(", $.integer, ")", "{", repeat($.bitfield_field), "}"),
     bitfield_field: $ =>
       seq(
-        $.ident,
+        field("name", $.ident),
         ":",
-        seq($.integer, optional(seq("..", $.integer)), optional($.attribute)),
+        seq(
+          $.integer,
+          optional(seq("..", $.integer)),
+          field("value", optional(seq("=", $.expression))),
+          optional($.attribute),
+        ),
         ";",
       ),
 
