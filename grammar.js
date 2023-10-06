@@ -301,7 +301,7 @@ module.exports = grammar({
 
     unary_op: $ => prec(5, seq(choice("-", "!", "~", "*"), $.expression)),
 
-    len: $ => seq("|", $.expression, "|"),
+    len: $ => prec(10, seq("|", $.expression, "|")),
 
     if: $ =>
       prec.left(
