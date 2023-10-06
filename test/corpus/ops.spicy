@@ -20,3 +20,39 @@ Operator precedence
               (ident))
             (expression
               (integer))))))))
+
+================================================================================
+Len precendence
+================================================================================
+local a = |xs| + 1;
+local b = |vector(|xs|)| + 1;
+--------------------------------------------------------------------------------
+
+(module
+  entities: (var_decl
+    (linkage)
+    name: (ident)
+    init: (expression
+      (binary_op
+        lhs: (expression
+          (len
+            (expression
+              (ident))))
+        rhs: (expression
+          (integer)))))
+  entities: (var_decl
+    (linkage)
+    name: (ident)
+    init: (expression
+      (binary_op
+        lhs: (expression
+          (len
+            (expression
+              (function_call
+                name: (ident)
+                (expression
+                  (len
+                    (expression
+                      (ident))))))))
+        rhs: (expression
+          (integer))))))
