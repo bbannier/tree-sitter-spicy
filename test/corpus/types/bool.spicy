@@ -17,9 +17,11 @@ assert False || x;
 (module
   (var_decl
     (linkage)
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (expression
       (boolean)))
   (statement
@@ -29,7 +31,8 @@ assert False || x;
           (expression
             (boolean))
           (expression
-            (ident))))))
+            (ident
+              (name)))))))
   (statement
     (assert
       (expression
@@ -37,7 +40,8 @@ assert False || x;
           (expression
             (boolean))
           (expression
-            (ident))))))
+            (ident
+              (name)))))))
   (statement
     (assert
       (expression
@@ -49,15 +53,18 @@ assert False || x;
       (expression
         (binary_op
           (expression
-            (ident))
+            (ident
+              (name)))
           (expression
-            (ident))))))
+            (ident
+              (name)))))))
   (statement
     (assert
       (expression
         (binary_op
           (expression
-            (ident))
+            (ident
+              (name)))
           (expression
             (boolean))))))
   (statement
@@ -68,7 +75,8 @@ assert False || x;
             (expression
               (binary_op
                 (expression
-                  (ident))
+                  (ident
+                    (name)))
                 (expression
                   (boolean)))))))))
   (statement
@@ -78,4 +86,5 @@ assert False || x;
           (expression
             (boolean))
           (expression
-            (ident)))))))
+            (ident
+              (name))))))))

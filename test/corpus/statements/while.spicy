@@ -23,7 +23,8 @@ else 0;
           (expression
             (post
               (expression
-                (ident))))
+                (ident
+                  (name)))))
           (expression
             (integer))))
       (statement
@@ -33,7 +34,8 @@ else 0;
     (while
       (var_decl
         (linkage)
-        (ident)
+        (ident
+          (name))
         (expression
           (integer)))
       (expression
@@ -41,7 +43,8 @@ else 0;
           (expression
             (post
               (expression
-                (ident))))
+                (ident
+                  (name)))))
           (expression
             (integer))))
       (statement
@@ -51,7 +54,8 @@ else 0;
     (while
       (var_decl
         (linkage)
-        (ident)
+        (ident
+          (name))
         (expression
           (integer)))
       (expression
@@ -59,7 +63,8 @@ else 0;
           (expression
             (post
               (expression
-                (ident))))
+                (ident
+                  (name)))))
           (expression
             (integer))))
       (statement
@@ -68,7 +73,8 @@ else 0;
     (while
       (var_decl
         (linkage)
-        (ident)
+        (ident
+          (name))
         (expression
           (integer)))
       (expression
@@ -76,7 +82,8 @@ else 0;
           (expression
             (post
               (expression
-                (ident))))
+                (ident
+                  (name)))))
           (expression
             (integer))))
       (statement

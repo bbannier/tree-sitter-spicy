@@ -16,5 +16,6 @@ a; # Inline comment.
   (comment)
   (statement
     (expression
-      (ident)))
+      (ident
+        (name))))
   (comment))

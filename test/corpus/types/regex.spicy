@@ -44,9 +44,11 @@ type Z = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (regexp)
       (block
         (statement
@@ -54,9 +56,11 @@ type Z = unit {
             (expression
               (capture_group)))))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (regexp)
       (attribute
         (attribute_name))
@@ -66,9 +70,11 @@ type Z = unit {
             (expression
               (capture_group)))))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (regexp)
       (block
         (statement

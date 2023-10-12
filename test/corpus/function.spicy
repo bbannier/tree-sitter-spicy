@@ -6,7 +6,8 @@ function fn() {}
 
 (module
   (function_decl
-    (ident)
+    (ident
+      (name))
     (block)))
 
 ================================================================================
@@ -17,9 +18,11 @@ function fn() : uint8 {}
 
 (module
   (function_decl
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (block)))
 
 ================================================================================
@@ -30,10 +33,13 @@ function fn(x: uint8) {}
 
 (module
   (function_decl
-    (ident)
-    (ident)
+    (ident
+      (name))
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (block)))
 
 ================================================================================
@@ -44,10 +50,13 @@ function fn(xs: uint8) {}
 
 (module
   (function_decl
-    (ident)
-    (ident)
+    (ident
+      (name))
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (block)))
 
 ================================================================================
@@ -60,7 +69,8 @@ public function fn() {}
 (module
   (function_decl
     (visibility)
-    (ident)
+    (ident
+      (name))
     (block)))
 
 ================================================================================
@@ -71,7 +81,8 @@ function defined_in_cxx();
 
 (module
   (function_decl
-    (ident)))
+    (ident
+      (name))))
 
 ================================================================================
 Call (w/o args)
@@ -83,7 +94,8 @@ f();
   (statement
     (expression
       (function_call
-        (ident)))))
+        (ident
+          (name))))))
 
 ================================================================================
 Call (w/ args)
@@ -95,10 +107,12 @@ f(1, b"123", a);
   (statement
     (expression
       (function_call
-        (ident)
+        (ident
+          (name))
         (expression
           (integer))
         (expression
           (bytes))
         (expression
-          (ident))))))
+          (ident
+            (name)))))))

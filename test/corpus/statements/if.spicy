@@ -40,7 +40,8 @@ type TestUnit3 = unit() {
       (expression
         (binary_op
           (expression
-            (ident))
+            (ident
+              (name)))
           (expression
             (integer))))
       (statement
@@ -52,7 +53,8 @@ type TestUnit3 = unit() {
       (expression
         (binary_op
           (expression
-            (ident))
+            (ident
+              (name)))
           (expression
             (integer))))
       (statement
@@ -64,7 +66,8 @@ type TestUnit3 = unit() {
       (expression
         (binary_op
           (expression
-            (ident))
+            (ident
+              (name)))
           (expression
             (integer))))
       (statement
@@ -80,7 +83,8 @@ type TestUnit3 = unit() {
       (expression
         (binary_op
           (expression
-            (ident))
+            (ident
+              (name)))
           (expression
             (integer))))
       (statement
@@ -92,12 +96,15 @@ type TestUnit3 = unit() {
           (expression
             (boolean))))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (params)
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
@@ -105,20 +112,25 @@ type TestUnit3 = unit() {
       (expression
         (boolean))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (params)
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
           (integer))))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
@@ -126,20 +138,25 @@ type TestUnit3 = unit() {
       (expression
         (boolean))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (params)
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
           (integer))))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression

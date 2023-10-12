@@ -8,17 +8,23 @@ type X = unit(z: uint8) {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (params
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident)))
+        (ident
+          (name))))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (expression
-        (ident)))))
+        (ident
+          (name))))))
 
 ================================================================================
 Unit var
@@ -32,17 +38,22 @@ type A = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (var_decl
       (linkage)
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident)))
+        (ident
+          (name))))
     (var_decl
       (linkage)
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (optional))))
 
 ================================================================================
@@ -60,18 +71,22 @@ type Test = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (vector
         (bytes)
         (expression
           (integer))))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (vector
         (typename
-          (ident))
+          (ident
+            (name)))
         (expression
           (binary_op
             (expression
@@ -79,20 +94,26 @@ type Test = unit {
             (expression
               (integer))))))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (vector
         (typename
-          (ident))
+          (ident
+            (name)))
         (expression
           (integer))))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident)))
+        (ident
+          (name))))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident)))))
+        (ident
+          (name))))))
 
 ================================================================================
 Sink
@@ -107,18 +128,23 @@ type Main = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name))
       (sink
         (self_id)
-        (ident)))
+        (ident
+          (name))))
     (sink_decl
-      (ident))))
+      (ident
+        (name)))))
 
 ================================================================================
 Hook decl
@@ -137,15 +163,19 @@ type Sub = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)))
     (hook_decl
-      (ident)
+      (ident
+        (name))
       (statement
         (block
           (statement
@@ -155,30 +185,40 @@ type Sub = unit {
                   (expression
                     (self_id))
                   (type_member_ident
-                    (ident)))))))))
+                    (ident
+                      (name))))))))))
     (hook_decl
-      (ident)
-      (ident)
+      (ident
+        (name))
+      (ident
+        (name))
       (typename
-        (ident))
-      (ident)
+        (ident
+          (name)))
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (statement
         (block
           (statement
             (expression
               (integer))))))
     (hook_decl
-      (ident)
-      (ident)
+      (ident
+        (name))
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (statement
         (expression
           (integer))))
     (hook_decl
-      (ident)
+      (ident
+        (name))
       (statement
         (block
           (statement
@@ -198,19 +238,23 @@ type Test = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (hook_decl
-      (ident)
+      (ident
+        (name))
       (foreach
         (block)))
     (field_decl
       (typename
-        (ident))
+        (ident
+          (name)))
       (foreach
         (block))
       (block))
     (hook_decl
-      (ident)
+      (ident
+        (name))
       (statement
         (block)))))
 
@@ -229,11 +273,14 @@ type X = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (block
         (statement
           (assert
@@ -241,14 +288,16 @@ type X = unit {
               (type_member_check
                 (expression
                   (self_id))
-                (ident)))))
+                (ident
+                  (name))))))
         (statement
           (assert
             (expression
               (type_member_checked
                 (expression
                   (self_id))
-                (ident)))))))))
+                (ident
+                  (name))))))))))
 
 ================================================================================
 Debug hook
@@ -263,16 +312,20 @@ type Test = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name))
       (block))
     (hook_decl
-      (ident)
+      (ident
+        (name))
       (is_debug)
       (statement
         (block)))))
@@ -290,18 +343,23 @@ on test::a {}
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
           (integer)))))
   (hook_decl
     (ident
-      (ident))
+      (name)
+      (ident
+        (name)))
     (statement
       (block))))
 
@@ -318,20 +376,29 @@ on Mini::Foo::%init {}
 (module
   (hook_decl
     (ident
+      (name)
       (ident
-        (ident)))
+        (name)
+        (ident
+          (name))))
     (statement
       (block)))
   (hook_decl
     (ident
+      (name)
       (ident
-        (ident)))
+        (name)
+        (ident
+          (name))))
     (statement
       (block)))
   (hook_decl
     (ident
-      (ident))
-    (ident)
+      (name)
+      (ident
+        (name)))
+    (ident
+      (name))
     (statement
       (block))))
 
@@ -351,32 +418,40 @@ on tA::a priority=15 { }
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
           (integer)))
       (block))
     (hook_decl
-      (ident)
+      (ident
+        (name))
       (hook_priority
         (integer))
       (statement
         (block))))
   (hook_decl
     (ident
-      (ident))
+      (name)
+      (ident
+        (name)))
     (hook_priority
       (integer))
     (statement
       (block)))
   (hook_decl
     (ident
-      (ident))
+      (name)
+      (ident
+        (name)))
     (hook_priority
       (integer))
     (statement
@@ -394,12 +469,15 @@ type Message = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (vector
         (typename
-          (ident))
+          (ident
+            (name)))
         (expression
           (self_id))))))
 
@@ -413,11 +491,14 @@ type TCAPTag = unit(consume: bool = False) {};
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (params
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (expression
         (boolean)))))
 
@@ -432,12 +513,15 @@ type T2 = unit(inout t: Test) {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (params
       (inout)
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident)))))
+        (ident
+          (name))))))
 
 ================================================================================
 Switch
@@ -479,29 +563,35 @@ type test4 = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (unit_switch
       (expression
         (type_member
           (expression
             (self_id))
           (type_member_ident
-            (ident))))
+            (ident
+              (name)))))
       (unit_switch_case
         (expression
           (bytes))
         (field_decl
-          (ident)
+          (ident
+            (name))
           (typename
-            (ident))
+            (ident
+              (name)))
           (attribute
             (attribute_name)
             (expression
               (integer))))
         (field_decl
-          (ident)
+          (ident
+            (name))
           (typename
-            (ident))
+            (ident
+              (name)))
           (attribute
             (attribute_name)
             (expression
@@ -510,77 +600,96 @@ type test4 = unit {
         (expression
           (bytes))
         (field_decl
-          (ident)
+          (ident
+            (name))
           (typename
-            (ident))
+            (ident
+              (name)))
           (attribute
             (attribute_name)
             (expression
               (integer))))
         (field_decl
-          (ident)
+          (ident
+            (name))
           (typename
-            (ident))
+            (ident
+              (name)))
           (attribute
             (attribute_name)
             (expression
               (integer)))))
       (unit_switch_case
         (field_decl
-          (ident)
+          (ident
+            (name))
           (typename
-            (ident))
+            (ident
+              (name)))
           (attribute
             (attribute_name)
             (expression
               (integer)))))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (params
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident)))
+        (ident
+          (name))))
     (unit_switch
       (expression
         (type_member
           (expression
             (self_id))
           (type_member_ident
-            (ident))))
+            (ident
+              (name)))))
       (unit_switch_case
         (expression
           (bytes))
         (field_decl
           (typename
-            (ident))))
+            (ident
+              (name)))))
       (unit_switch_case
         (expression
           (bytes))
         (field_decl
           (typename
-            (ident))
+            (ident
+              (name)))
           (expression
-            (ident))))
+            (ident
+              (name)))))
       (attribute
         (attribute_name)
         (expression
           (integer)))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (unit_switch
       (unit_switch_case
         (field_decl
-          (ident)
+          (ident
+            (name))
           (typename
-            (ident))))))
+            (ident
+              (name)))))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (unit_switch
       (unit_switch_case
         (field_decl
-          (ident)
+          (ident
+            (name))
           (typename
-            (ident))))
+            (ident
+              (name)))))
       (attribute
         (attribute_name))
       (attribute
@@ -603,7 +712,8 @@ type test = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (unit_switch
       (unit_switch_case
         (field_decl
@@ -625,7 +735,8 @@ type test = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (unit_switch
       (expression
         (integer))
@@ -650,7 +761,8 @@ type test = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (unit_switch
       (expression
         (integer))
@@ -676,22 +788,27 @@ type Foo = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (vector
         (typename
-          (ident))
+          (ident
+            (name)))
         (attribute
           (attribute_name)
           (expression
             (bytes)))
         (integer)))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (vector
         (typename
-          (ident))
+          (ident
+            (name)))
         (attribute
           (attribute_name)
           (expression
@@ -710,10 +827,12 @@ public type Foo = unit {
 (module
   (type_decl
     (visibility)
-    (ident)
+    (ident
+      (name))
     (field_decl
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)))))
 
@@ -728,7 +847,8 @@ type Foo = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (attribute
       (attribute_name)
       (expression
@@ -750,10 +870,12 @@ type X = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
@@ -775,17 +897,20 @@ type Foo = unit {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
       (typename
         (bitfield
           (integer)
           (bitfield_field
-            (ident)
+            (ident
+              (name))
             (integer)
             (integer))
           (bitfield_field
-            (ident)
+            (ident
+              (name))
             (integer)
             (integer))))
       (block))))
@@ -811,26 +936,35 @@ public type X = unit() {
 
 (module
   (module_decl
-    (ident))
+    (ident
+      (name)))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident)))
+      (ident
+        (name))))
   (type_decl
     (visibility)
-    (ident)
+    (ident
+      (name))
     (params
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident)))
+        (ident
+          (name))))
     (attribute
       (attribute_name)
       (expression
-        (ident)))
+        (ident
+          (name))))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
@@ -842,15 +976,19 @@ public type X = unit() {
       (attribute
         (attribute_name)
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (type_decl
     (visibility)
-    (ident)
+    (ident
+      (name))
     (params)
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (expression
         (integer)))))
 
@@ -865,14 +1003,18 @@ type X = unit {
 
 (module
   (module_decl
-    (ident))
+    (ident
+      (name)))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (var_decl
       (linkage)
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
@@ -887,9 +1029,11 @@ global x: X = [$a = 1, $b = 2];
 (module
   (var_decl
     (linkage)
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (expression
       (struct_ctr
         (struct_ctr_id)

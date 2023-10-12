@@ -36,6 +36,7 @@ assert-exception b3 == b"XXX";
       (expression
         (binary_op
           (expression
-            (ident))
+            (ident
+              (name)))
           (expression
             (bytes)))))))

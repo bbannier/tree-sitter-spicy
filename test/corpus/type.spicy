@@ -10,20 +10,26 @@ type X = bitfield(8) {
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (typename
-        (ident))))
+        (ident
+          (name)))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (typename
       (bitfield
         (integer)
         (bitfield_field
-          (ident)
+          (ident
+            (name))
           (integer)
           (integer))))))
 
@@ -39,12 +45,14 @@ type X = bitfield(8) {
 
 (module
   entities: (type_decl
-    name: (ident)
+    name: (ident
+      (name))
     (typename
       (bitfield
         (integer)
         (bitfield_field
-          name: (ident)
+          name: (ident
+            (name))
           (integer)
           (integer)
           value: (expression
@@ -67,13 +75,15 @@ type X = bitfield(8) {
 
 (module
   entities: (type_decl
-    name: (ident)
+    name: (ident
+      (name))
     field: (field_decl
       type_: (typename
         (bitfield
           (integer)
           (bitfield_field
-            name: (ident)
+            name: (ident
+              (name))
             (integer)
             (integer)
             value: (expression
@@ -82,15 +92,20 @@ type X = bitfield(8) {
         attribute_name: (attribute_name)
         attribute_value: (expression
           (ident
+            (name)
             (ident
-              (ident)))))))
+              (name)
+              (ident
+                (name))))))))
   entities: (type_decl
-    name: (ident)
+    name: (ident
+      (name))
     (typename
       (bitfield
         (integer)
         (bitfield_field
-          name: (ident)
+          name: (ident
+            (name))
           (integer)
           (integer)
           value: (expression
@@ -99,8 +114,11 @@ type X = bitfield(8) {
       attribute_name: (attribute_name)
       attribute_value: (expression
         (ident
+          (name)
           (ident
-            (ident)))))))
+            (name)
+            (ident
+              (name))))))))
 
 ================================================================================
 Tuple with named fields
@@ -111,17 +129,24 @@ global tu: tuple<a: int32, string, c: bool> = (1, "2", True);
 (module
   (var_decl
     (linkage)
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident)
-      (ident)
+      (ident
+        (name))
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (typename
-        (ident))
-      (ident)
+        (ident
+          (name)))
+      (ident
+        (name))
       (typename
-        (ident)))
+        (ident
+          (name))))
     (expression
       (tuple
         (expression

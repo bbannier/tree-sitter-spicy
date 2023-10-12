@@ -21,27 +21,36 @@ assert a1.family() == spicy::AddressFamily::IPv4;
 (module
   (type_decl
     (visibility)
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name))
       (attribute
         (attribute_name)
         (expression
           (ident
+            (name)
             (ident
-              (ident))))))
+              (name)
+              (ident
+                (name)))))))
     (hook_decl
-      (ident)
+      (ident
+        (name))
       (statement
         (block
           (statement
@@ -51,15 +60,18 @@ assert a1.family() == spicy::AddressFamily::IPv4;
                   (expression
                     (self_id))
                   (type_member_ident
-                    (ident))))))))))
+                    (ident
+                      (name)))))))))))
   (var_decl
     (linkage)
-    (ident)
+    (ident
+      (name))
     (expression
       (address4)))
   (var_decl
     (linkage)
-    (ident)
+    (ident
+      (name))
     (expression
       (address6)))
   (statement
@@ -70,13 +82,18 @@ assert a1.family() == spicy::AddressFamily::IPv4;
             (type_member_call
               (type_member
                 (expression
-                  (ident))
+                  (ident
+                    (name)))
                 (type_member_ident
-                  (ident)))))
+                  (ident
+                    (name))))))
           (expression
             (ident
+              (name)
               (ident
-                (ident)))))))))
+                (name)
+                (ident
+                  (name))))))))))
 
 ================================================================================
 Network

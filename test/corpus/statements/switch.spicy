@@ -44,7 +44,8 @@ switch ( 3 ) {
           (expression
             (pre
               (expression
-                (ident))))))
+                (ident
+                  (name)))))))
       (case
         (statement
           (assert
@@ -73,7 +74,8 @@ switch ( 3 ) {
           (expression
             (pre
               (expression
-                (ident))))))))
+                (ident
+                  (name)))))))))
   (statement
     (switch
       (expression
@@ -118,7 +120,8 @@ switch (local x = 1) {
   (statement
     (switch
       (linkage)
-      (ident)
+      (ident
+        (name))
       (expression
         (integer))
       (case

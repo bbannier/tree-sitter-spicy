@@ -6,7 +6,8 @@ module Foo;
 
 (module
   (module_decl
-    (ident)))
+    (ident
+      (name))))
 
 ================================================================================
 Import
@@ -16,7 +17,8 @@ import Foo;
 
 (module
   (import
-    (ident)))
+    (ident
+      (name))))
 
 ================================================================================
 Set add
@@ -31,15 +33,18 @@ add s2[s3];
   (statement
     (expression
       (set_add
-        (ident)
+        (ident
+          (name))
         (expression
           (integer)))))
   (statement
     (expression
       (set_add
-        (ident)
+        (ident
+          (name))
         (expression
-          (ident))))))
+          (ident
+            (name)))))))
 
 ================================================================================
 Local variable
@@ -56,7 +61,8 @@ local f2 = "-";
     (block
       (var_decl
         (linkage)
-        (ident)
+        (ident
+          (name))
         (expression
           (string))))))
 

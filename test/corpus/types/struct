@@ -9,16 +9,22 @@ type S = struct { a: uint8; s: S &foo; };
 
 (module
   (struct_decl
-    (ident))
+    (ident
+      (name)))
   (struct_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident)))
+        (ident
+          (name))))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)))))

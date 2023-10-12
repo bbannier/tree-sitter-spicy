@@ -15,9 +15,11 @@ global b1: bytes& = new b"My";
           (bytes)))))
   (var_decl
     (linkage)
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (expression
       (new
         (expression
@@ -38,16 +40,19 @@ self.foo[1];
     (expression
       (array_access
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
           (integer)))))
   (statement
     (expression
       (array_access
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (array_access
@@ -56,7 +61,8 @@ self.foo[1];
             (expression
               (self_id))
             (type_member_ident
-              (ident))))
+              (ident
+                (name)))))
         (expression
           (integer))))))
 
@@ -74,7 +80,8 @@ self?.b ? 2.0 : b"noe_b";
     (expression
       (ternary
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
           (integer))
         (expression
@@ -101,7 +108,8 @@ self?.b ? 2.0 : b"noe_b";
           (type_member_check
             (expression
               (self_id))
-            (ident)))
+            (ident
+              (name))))
         (expression
           (real))
         (expression
@@ -120,12 +128,16 @@ List comprehension
       (list_comp
         (expression
           (function_call
-            (ident)
+            (ident
+              (name))
             (expression
-              (ident))))
-        (ident)
+              (ident
+                (name)))))
+        (ident
+          (name))
         (expression
-          (ident))))))
+          (ident
+            (name)))))))
 
 ================================================================================
 Set membership
@@ -142,7 +154,8 @@ Set membership
           (integer))
         (expression
           (function_call
-            (ident)
+            (ident
+              (name))
             (expression
               (integer))
             (expression
@@ -156,7 +169,8 @@ Set membership
           (integer))
         (expression
           (function_call
-            (ident)
+            (ident
+              (name))
             (expression
               (integer))
             (expression
@@ -176,23 +190,27 @@ public global d = 3;
 (module
   (var_decl
     (linkage)
-    (ident)
+    (ident
+      (name))
     (expression
       (integer)))
   (var_decl
     (visibility)
     (linkage)
-    (ident)
+    (ident
+      (name))
     (expression
       (integer)))
   (var_decl
     (linkage)
-    (ident)
+    (ident
+      (name))
     (expression
       (integer)))
   (var_decl
     (visibility)
     (linkage)
-    (ident)
+    (ident
+      (name))
     (expression
       (integer))))

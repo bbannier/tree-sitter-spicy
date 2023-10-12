@@ -21,43 +21,56 @@ function callAForLoop(oneMember: usefulType) {
 (module
   (type_decl
     (visibility)
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (block
         (statement
           (expression
             (function_call
-              (ident)
+              (ident
+                (name))
               (expression
                 (dd))))))))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (field_decl
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (attribute
         (attribute_name)
         (expression
           (integer)))))
   (function_decl
-    (ident)
-    (ident)
+    (ident
+      (name))
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (block
       (statement
         (for
-          (ident)
+          (ident
+            (name))
           (expression
             (type_member
               (expression
-                (ident))
+                (ident
+                  (name)))
               (type_member_ident
-                (ident))))
+                (ident
+                  (name)))))
           (statement
             (block
               (statement
@@ -67,4 +80,5 @@ function callAForLoop(oneMember: usefulType) {
                       (expression
                         (string))
                       (expression
-                        (ident)))))))))))))
+                        (ident
+                          (name))))))))))))))

@@ -28,7 +28,8 @@ for ( i in [1,2,3] ) {
 (module
   (statement
     (for
-      (ident)
+      (ident
+        (name))
       (expression
         (list
           (expression
@@ -40,10 +41,12 @@ for ( i in [1,2,3] ) {
       (statement
         (print
           (expression
-            (ident))))))
+            (ident
+              (name)))))))
   (var_decl
     (linkage)
-    (ident)
+    (ident
+      (name))
     (expression
       (list
         (expression
@@ -54,27 +57,33 @@ for ( i in [1,2,3] ) {
           (integer)))))
   (statement
     (for
-      (ident)
+      (ident
+        (name))
       (expression
-        (ident))
+        (ident
+          (name)))
       (statement
         (block
           (statement
             (print
               (expression
-                (ident))))))))
+                (ident
+                  (name)))))))))
   (statement
     (for
-      (ident)
+      (ident
+        (name))
       (expression
         (list))
       (statement
         (print
           (expression
-            (ident))))))
+            (ident
+              (name)))))))
   (statement
     (for
-      (ident)
+      (ident
+        (name))
       (expression
         (list
           (expression
@@ -90,7 +99,8 @@ for ( i in [1,2,3] ) {
               (expression
                 (binary_op
                   (expression
-                    (ident))
+                    (ident
+                      (name)))
                   (expression
                     (integer))))
               (statement
@@ -98,13 +108,15 @@ for ( i in [1,2,3] ) {
           (statement
             (print
               (expression
-                (ident))))
+                (ident
+                  (name)))))
           (statement
             (if
               (expression
                 (binary_op
                   (expression
-                    (ident))
+                    (ident
+                      (name)))
                   (expression
                     (integer))))
               (statement

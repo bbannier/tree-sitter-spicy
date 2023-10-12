@@ -19,19 +19,26 @@ public type E = enum {
 (module
   (enum_decl
     (visibility)
-    (ident))
+    (ident
+      (name)))
   (enum_decl
     (visibility)
-    (ident)
+    (ident
+      (name))
     (enum_label
-      (ident))
+      (ident
+        (name)))
     (enum_label
-      (ident)))
+      (ident
+        (name))))
   (enum_decl
     (visibility)
-    (ident)
+    (ident
+      (name))
     (enum_label
-      (ident)
+      (ident
+        (name))
       (integer))
     (enum_label
-      (ident))))
+      (ident
+        (name)))))

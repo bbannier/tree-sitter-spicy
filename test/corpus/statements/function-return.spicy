@@ -15,21 +15,25 @@ function g() : int64 {
 
 (module
   (function_decl
-    (ident)
+    (ident
+      (name))
     (block
       (statement
         (expression
           (assign
             (expression
-              (ident))
+              (ident
+                (name)))
             (expression
               (integer)))))
       (statement
         (return))))
   (function_decl
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (block
       (statement
         (return
@@ -46,10 +50,13 @@ function foo(x: uint8) &cxxname="foo" {}
 
 (module
   (function_decl
-    (ident)
-    (ident)
+    (ident
+      (name))
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (attribute
       (attribute_name)
       (expression
@@ -66,16 +73,23 @@ function foo(x: uint8, inout y: uint8, inout z: uint8) {}
 
 (module
   (function_decl
-    (ident)
-    (ident)
+    (ident
+      (name))
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (inout)
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (inout)
-    (ident)
+    (ident
+      (name))
     (typename
-      (ident))
+      (ident
+        (name)))
     (block)))

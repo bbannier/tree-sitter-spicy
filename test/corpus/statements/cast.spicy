@@ -10,6 +10,7 @@ cast<real>(0x20000000000001);
   (statement
     (expression
       (cast
-        (ident)
+        (ident
+          (name))
         (expression
           (integer))))))

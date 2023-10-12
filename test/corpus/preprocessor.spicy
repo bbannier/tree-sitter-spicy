@@ -9,7 +9,8 @@ Ifdef
 (module
   (preproc
     (expression
-      (ident))
+      (ident
+        (name)))
     body: (statement
       (expression
         (integer)))))
@@ -27,7 +28,8 @@ Comparison
     (expression
       (binary_op
         lhs: (expression
-          (ident))
+          (ident
+            (name)))
         rhs: (expression
           (integer))))
     body: (statement
@@ -95,13 +97,15 @@ type X = unit {
 
 (module
   entities: (type_decl
-    name: (ident)
+    name: (ident
+      (name))
     (preproc
       (expression
         (integer))
       body: (field_decl
         type_: (typename
-          (ident))
+          (ident
+            (name)))
         attributes: (attribute
           attribute_name: (attribute_name)
           attribute_value: (expression
@@ -122,4 +126,5 @@ import foo;
     (expression
       (integer))
     (import
-      (ident))))
+      (ident
+        (name)))))

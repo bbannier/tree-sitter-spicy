@@ -28,9 +28,11 @@ map<uint8, uint8>(1: 1);
     (expression
       (map
         (typename
-          (ident))
+          (ident
+            (name)))
         (typename
-          (ident))
+          (ident
+            (name)))
         (expression
           (integer))
         (expression

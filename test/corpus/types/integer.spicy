@@ -167,30 +167,38 @@ i ** m;
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident))))))
+          (ident
+            (name)))))))
 
 ================================================================================
 Cmp
@@ -210,44 +218,56 @@ i >= i;
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (binary_op
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident))))))
+          (ident
+            (name)))))))
 
 ================================================================================
 Op Eq
@@ -265,30 +285,38 @@ i /= i;
     (expression
       (assign
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (assign
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (assign
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (assign
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident))))))
+          (ident
+            (name)))))))
 
 ================================================================================
 Assign
@@ -304,17 +332,21 @@ i = 1 = i;
     (expression
       (assign
         (expression
-          (ident))
+          (ident
+            (name)))
         (expression
-          (ident)))))
+          (ident
+            (name))))))
   (statement
     (expression
       (assign
         (expression
           (assign
             (expression
-              (ident))
+              (ident
+                (name)))
             (expression
               (integer))))
         (expression
-          (ident))))))
+          (ident
+            (name)))))))

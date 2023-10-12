@@ -18,29 +18,37 @@ b1;
 (module
   (statement
     (expression
-      (ident)))
+      (ident
+        (name))))
   (statement
     (expression
-      (ident)))
+      (ident
+        (name))))
   (statement
     (expression
-      (ident)))
+      (ident
+        (name))))
   (statement
     (expression
-      (ident)))
+      (ident
+        (name))))
   (statement
     (expression
-      (ident)))
+      (ident
+        (name))))
   (statement
     (expression
-      (ident)))
+      (ident
+        (name))))
   (comment)
   (statement
     (expression
-      (ident)))
+      (ident
+        (name))))
   (statement
     (expression
-      (ident))))
+      (ident
+        (name)))))
 
 ================================================================================
 Library type identifier
@@ -52,6 +60,7 @@ type Val = __library_type("::zeek::ValPtr");
 
 (module
   (type_decl
-    (ident)
+    (ident
+      (name))
     (library_type
       (string))))

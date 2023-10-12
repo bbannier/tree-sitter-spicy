@@ -11,17 +11,22 @@ type X = unit {
 
 (module
   (module_decl
-    (ident))
+    (ident
+      (name)))
   (type_decl
-    (ident)
+    (ident
+      (name))
     (var_decl
       (linkage)
-      (ident)
+      (ident
+        (name))
       (typename
-        (ident))
+        (ident
+          (name)))
       (optional))
     (hook_decl
-      (ident)
+      (ident
+        (name))
       (statement
         (block
           (statement
@@ -31,4 +36,5 @@ type X = unit {
                   (expression
                     (self_id))
                   (type_member_ident
-                    (ident)))))))))))
+                    (ident
+                      (name))))))))))))

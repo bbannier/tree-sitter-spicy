@@ -10,6 +10,8 @@ module.exports = grammar({
     /[\s\f\uFEFF\u2060\u200B]|\\\r?\n/,
   ],
 
+  conflicts: $ => [[$.ident]],
+
   rules: {
     module: $ => field("entities", optional($._entities)),
 
@@ -500,13 +502,8 @@ module.exports = grammar({
 
     dd: _ => "$$",
     self_id: _ => "self",
-    ident: $ =>
-      prec.left(
-        seq(
-          /[a-zA-Z_]|[a-zA-Z_][a-zA-Z_0-9]*[a-zA-Z_0-9]/,
-          optional(seq("::", $.ident)),
-        ),
-      ),
+    ident: $ => seq($.name, optional(seq("::", $.ident))),
+    name: _ => /[a-zA-Z_]|[a-zA-Z_][a-zA-Z_0-9]*[a-zA-Z_0-9]/,
     integer: _ => seq(optional("+"), choice(/\d+/, /0x[a-fA-F0-9]+(p\d+)?/)),
     real: _ =>
       seq(
