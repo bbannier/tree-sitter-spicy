@@ -555,11 +555,8 @@ module.exports = grammar({
     port: _ => /\d+\/(tcp|udp|icmp)/,
 
     attribute_name: _ => /[&|%][a-zA-Z_][a-zA-z-0-9|-]*/,
-    _hook: $ =>
-      choice(
-        seq($.ident, seq(token(seq("::", "%")), $.ident)),
-        seq("%", $.ident),
-      ),
+    _hook: $ => choice($.hook_name, seq($.ident, token("::"), $.hook_name)),
+    hook_name: $ => seq("%", alias($.name, $.ident)),
 
     list: $ => seq("[", optional(commaSep1($.expression)), "]"),
     tuple: $ =>

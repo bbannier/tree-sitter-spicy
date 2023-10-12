@@ -25,8 +25,8 @@ type X = unit {
           (name)))
       (optional))
     (hook_decl
-      (ident
-        (name))
+      (hook_name
+        (ident))
       (statement
         (block
           (statement

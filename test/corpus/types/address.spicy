@@ -49,8 +49,8 @@ assert a1.family() == spicy::AddressFamily::IPv4;
               (ident
                 (name)))))))
     (hook_decl
-      (ident
-        (name))
+      (hook_name
+        (ident))
       (statement
         (block
           (statement

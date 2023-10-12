@@ -174,8 +174,8 @@ type Sub = unit {
       (attribute
         (attribute_name)))
     (hook_decl
-      (ident
-        (name))
+      (hook_name
+        (ident))
       (statement
         (block
           (statement
@@ -188,8 +188,8 @@ type Sub = unit {
                     (ident
                       (name))))))))))
     (hook_decl
-      (ident
-        (name))
+      (hook_name
+        (ident))
       (ident
         (name))
       (typename
@@ -206,8 +206,8 @@ type Sub = unit {
             (expression
               (integer))))))
     (hook_decl
-      (ident
-        (name))
+      (hook_name
+        (ident))
       (ident
         (name))
       (typename
@@ -253,8 +253,8 @@ type Test = unit {
         (block))
       (block))
     (hook_decl
-      (ident
-        (name))
+      (hook_name
+        (ident))
       (statement
         (block)))))
 
@@ -324,8 +324,8 @@ type Test = unit {
         (attribute_name))
       (block))
     (hook_decl
-      (ident
-        (name))
+      (hook_name
+        (ident))
       (is_debug)
       (statement
         (block)))))
@@ -397,8 +397,8 @@ on Mini::Foo::%init {}
       (name)
       (ident
         (name)))
-    (ident
-      (name))
+    (hook_name
+      (ident))
     (statement
       (block))))
 
