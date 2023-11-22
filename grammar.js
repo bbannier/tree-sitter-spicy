@@ -16,7 +16,7 @@ module.exports = grammar({
     module: $ => field("entities", optional($._entities)),
 
     _entities: $ =>
-      repeat1(choice($._decl, $.import, seq($.attribute, ";"), $.statement)),
+      repeat1(choice($._decl, $.import, seq($.property, ";"), $.statement)),
 
     // Make this higher precedence than `statement` so we match a top-level decls directly.
     _decl: $ =>
@@ -115,7 +115,7 @@ module.exports = grammar({
         "{",
         repeat(
           choice(
-            seq($.attribute, ";"),
+            seq($.property, ";"),
             field("field", $.field_decl),
             $.sink_decl,
             $.var_decl,
@@ -228,10 +228,18 @@ module.exports = grammar({
 
     foreach: $ => seq("foreach", $.block),
 
+    attribute_name: _ => /[&|%][a-zA-Z_][a-zA-z-0-9|-]*/,
     attribute: $ =>
       seq(
         field("attribute_name", $.attribute_name),
         optional(seq("=", field("attribute_value", $.expression))),
+      ),
+
+    property_name: _ => /[&|%][a-zA-Z_][a-zA-z-0-9|-]*/,
+    property: $ =>
+      seq(
+        field("property_name", $.property_name),
+        optional(seq("=", field("property_value", $.expression))),
       ),
 
     visibility: _ => choice("public"),
@@ -554,7 +562,6 @@ module.exports = grammar({
 
     port: _ => /\d+\/(tcp|udp|icmp)/,
 
-    attribute_name: _ => /[&|%][a-zA-Z_][a-zA-z-0-9|-]*/,
     _hook: $ => choice($.hook_name, seq($.ident, token("::"), $.hook_name)),
     hook_name: $ => seq("%", alias($.name, $.ident)),
 

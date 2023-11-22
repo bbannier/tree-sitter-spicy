@@ -57,6 +57,29 @@ type A = unit {
       (optional))))
 
 ================================================================================
+Unit properties
+================================================================================
+type A = unit {
+  %mime-type = "foo/bar";
+  %port = 8080;
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident
+      (name))
+    (property
+      (property_name)
+      (expression
+        (string)))
+    (property
+      (property_name)
+      (expression
+        (integer)))))
+
+================================================================================
 Vector field
 ================================================================================
 
@@ -954,8 +977,8 @@ public type X = unit() {
       (typename
         (ident
           (name))))
-    (attribute
-      (attribute_name)
+    (property
+      (property_name)
       (expression
         (ident
           (name))))
