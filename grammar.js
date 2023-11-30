@@ -171,12 +171,12 @@ module.exports = grammar({
       seq(
         "on",
         field("name", choice($.ident, $._hook)),
-        repeat(choice($.is_debug, $.hook_priority)),
         choice(
           seq(
             optional(
               seq("(", optional(commaSep1(seq($.ident, ":", $.typename))), ")"),
             ),
+            optional(repeat(choice($.is_debug, $.hook_priority))),
             $.statement,
           ),
           $.foreach,
