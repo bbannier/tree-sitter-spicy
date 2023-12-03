@@ -282,39 +282,6 @@ type Test = unit {
         (block)))))
 
 ================================================================================
-Debug hooks
-================================================================================
-
-type X = unit {
-  on %done %debug {}
-  on %error(e: string) %debug {}
-};
-
---------------------------------------------------------------------------------
-
-(module
-  (type_decl
-    (ident
-      (name))
-    (hook_decl
-      (hook_name
-        (ident))
-      (is_debug)
-      (statement
-        (block)))
-    (hook_decl
-      (hook_name
-        (ident))
-      (ident
-        (name))
-      (typename
-        (ident
-          (name)))
-      (is_debug)
-      (statement
-        (block)))))
-
-================================================================================
 Checked field access
 ================================================================================
 
@@ -362,6 +329,7 @@ Debug hook
 type Test = unit {
     a: uint8[] %debug {}
     on %done %debug {}
+    on %error(e: string) %debug {}
 };
 
 --------------------------------------------------------------------------------
@@ -376,12 +344,22 @@ type Test = unit {
       (typename
         (ident
           (name)))
-      (attribute
-        (attribute_name))
+      (is_debug)
       (block))
     (hook_decl
       (hook_name
         (ident))
+      (is_debug)
+      (statement
+        (block)))
+    (hook_decl
+      (hook_name
+        (ident))
+      (ident
+        (name))
+      (typename
+        (ident
+          (name)))
       (is_debug)
       (statement
         (block)))))

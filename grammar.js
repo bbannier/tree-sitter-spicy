@@ -217,7 +217,13 @@ module.exports = grammar({
             optional(prec(2000, seq("if", "(", $.expression, ")"))),
           ),
           optional(prec.left(seq("->", $.sink))),
-          choice(seq(optional($.foreach), optional($.block)), ";"),
+          choice(
+            seq(
+              seq(optional($.is_debug), optional($.foreach)),
+              seq(optional($.is_debug), optional($.block)),
+            ),
+            ";",
+          ),
         ),
       ),
 
