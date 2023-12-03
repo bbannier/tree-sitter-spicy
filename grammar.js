@@ -184,6 +184,7 @@ module.exports = grammar({
       ),
 
     is_debug: _ => "%debug",
+    is_skip: _ => "skip",
 
     hook_priority: $ => seq("priority", "=", optional("-"), $.integer),
 
@@ -192,7 +193,7 @@ module.exports = grammar({
         seq(
           field("name", optional($.ident)),
           ":",
-          field("skip", optional("skip")),
+          field("skip", optional($.is_skip)),
           field(
             "type_",
             choice(

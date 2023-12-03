@@ -854,21 +854,29 @@ Skip fields
 
 public type Foo = unit {
     : skip bytes &eod;
+    : bytes &eod;
 };
 
 --------------------------------------------------------------------------------
 
 (module
-  (type_decl
+  entities: (type_decl
     (visibility)
-    (ident
+    name: (ident
       (name))
-    (field_decl
-      (typename
+    field: (field_decl
+      skip: (is_skip)
+      type_: (typename
         (ident
           (name)))
-      (attribute
-        (attribute_name)))))
+      attributes: (attribute
+        attribute_name: (attribute_name)))
+    field: (field_decl
+      type_: (typename
+        (ident
+          (name)))
+      attributes: (attribute
+        attribute_name: (attribute_name)))))
 
 ================================================================================
 Unit attributes
