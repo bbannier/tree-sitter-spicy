@@ -53,11 +53,12 @@ function callAForLoop(oneMember: usefulType) {
   (function_decl
     (ident
       (name))
-    (ident
-      (name))
-    (typename
+    (function_arg
       (ident
-        (name)))
+        (name))
+      (typename
+        (ident
+          (name))))
     (block
       (statement
         (for

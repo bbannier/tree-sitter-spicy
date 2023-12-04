@@ -32,14 +32,15 @@ function fn(x: uint8) {}
 --------------------------------------------------------------------------------
 
 (module
-  (function_decl
-    (ident
+  entities: (function_decl
+    name: (ident
       (name))
-    (ident
-      (name))
-    (typename
+    arg: (function_arg
       (ident
-        (name)))
+        (name))
+      (typename
+        (ident
+          (name))))
     (block)))
 
 ================================================================================
@@ -52,11 +53,12 @@ function fn(xs: uint8) {}
   (function_decl
     (ident
       (name))
-    (ident
-      (name))
-    (typename
+    (function_arg
       (ident
-        (name)))
+        (name))
+      (typename
+        (ident
+          (name))))
     (block)))
 
 ================================================================================

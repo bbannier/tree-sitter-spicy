@@ -52,11 +52,12 @@ function foo(x: uint8) &cxxname="foo" {}
   (function_decl
     (ident
       (name))
-    (ident
-      (name))
-    (typename
+    (function_arg
       (ident
-        (name)))
+        (name))
+      (typename
+        (ident
+          (name))))
     (attribute
       (attribute_name)
       (expression
@@ -75,21 +76,24 @@ function foo(x: uint8, inout y: uint8, inout z: uint8) {}
   (function_decl
     (ident
       (name))
-    (ident
-      (name))
-    (typename
+    (function_arg
       (ident
-        (name)))
-    (inout)
-    (ident
-      (name))
-    (typename
+        (name))
+      (typename
+        (ident
+          (name))))
+    (function_arg
+      (inout)
       (ident
-        (name)))
-    (inout)
-    (ident
-      (name))
-    (typename
+        (name))
+      (typename
+        (ident
+          (name))))
+    (function_arg
+      (inout)
       (ident
-        (name)))
+        (name))
+      (typename
+        (ident
+          (name))))
     (block)))

@@ -41,12 +41,13 @@ module.exports = grammar({
         "function",
         field("name", $.ident),
         "(",
-        optional(commaSep1(seq(optional($.inout), $.ident, ":", $.typename))),
+        optional(commaSep1(field("arg", $.function_arg))),
         ")",
         optional(seq(":", field("returns", $.typename))),
         repeat($.attribute),
         choice($.block, ";"),
       ),
+    function_arg: $ => seq(optional($.inout), $.ident, ":", $.typename),
 
     linkage: _ => choice("local", "global", "const", "var"),
 
