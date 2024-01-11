@@ -835,7 +835,8 @@ type Foo = unit {
           (attribute_name)
           (expression
             (bytes)))
-        (integer)))
+        (expression
+          (integer))))
     (field_decl
       (ident
         (name))
@@ -1084,3 +1085,24 @@ global x: X = [$a = 1, $b = 2];
         (struct_ctr_id)
         (expression
           (integer))))))
+
+================================================================================
+Lists w/ bracketed type and dynamic width
+================================================================================
+type X = unit { xs: (ABC)[len]; };
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident
+      (name))
+    (field_decl
+      (ident
+        (name))
+      (vector
+        (typename
+          (ident
+            (name)))
+        (expression
+          (ident
+            (name)))))))

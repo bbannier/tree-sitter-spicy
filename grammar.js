@@ -544,7 +544,7 @@ module.exports = grammar({
             ),
             ")",
             "[",
-            optional($.integer),
+            optional($.expression),
             "]",
           ),
         ),
