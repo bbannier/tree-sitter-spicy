@@ -532,21 +532,31 @@ module.exports = grammar({
     void: _ => "void",
 
     vector: $ =>
-      prec(
+      prec.right(
         100,
-        choice(
-          seq(choice($.typename, $.bytes), "[", $.expression, "]"),
-          seq(
-            "(",
-            choice(
-              seq($.typename, "(", optional(commaSep1($.expression)), ")"),
-              prec.right(200, seq($.typename, repeat($.attribute))),
+        seq(
+          choice(
+            $._vector_element_type,
+            seq(
+              "(",
+              $._vector_element_type,
+              optional(repeat($.attribute)),
+              ")",
             ),
-            ")",
-            "[",
-            optional($.expression),
-            "]",
           ),
+          "[",
+          optional($.expression),
+          "]",
+          optional(repeat($.attribute)),
+        ),
+      ),
+
+    _vector_element_type: $ =>
+      prec.right(
+        200,
+        seq(
+          choice($.typename, $.bytes),
+          optional(seq("(", optional(commaSep1($.expression)), ")")),
         ),
       ),
 
