@@ -134,9 +134,10 @@ type Test = unit {
     (field_decl
       (ident
         (name))
-      (typename
-        (ident
-          (name))))))
+      (vector
+        (typename
+          (ident
+            (name)))))))
 
 ================================================================================
 Sink

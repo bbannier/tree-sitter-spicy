@@ -211,7 +211,6 @@ module.exports = grammar({
             "type_ctor_args",
             optional(seq("(", optional(commaSep1($.expression)), ")")),
           ),
-          optional(token(seq("[", "]"))),
           field("attributes", repeat($.attribute)),
           field(
             "conditional",
