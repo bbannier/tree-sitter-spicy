@@ -202,7 +202,6 @@ module.exports = grammar({
               $.regexp,
               $.bitfield,
               $.bytes,
-              $.function_call,
               $.array_access,
               $.void,
             ),
