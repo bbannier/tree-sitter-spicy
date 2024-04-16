@@ -255,6 +255,7 @@ module.exports = grammar({
         choice(
           choice($.block, seq($.expression, ";")),
           $.assert,
+          $.delete,
           $.throw_,
           $.print,
           $.return,
@@ -380,6 +381,8 @@ module.exports = grammar({
         optional(seq(":", $.string)),
         ";",
       ),
+
+    delete: $ => seq("delete", $.array_access, ";"),
 
     throw_: $ => seq(token("throw"), $.expression, ";"),
 

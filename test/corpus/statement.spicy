@@ -79,3 +79,22 @@ throw "123";
     (throw_
       (expression
         (string)))))
+
+===
+Delete
+===
+
+delete xs[x];
+
+---
+
+(module
+  (statement
+    (delete
+      (array_access
+        (expression
+          (ident
+            (name)))
+        (expression
+          (ident
+            (name)))))))
