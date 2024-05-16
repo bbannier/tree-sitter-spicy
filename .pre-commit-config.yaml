@@ -13,4 +13,4 @@ repos:
     hooks:
       - id: prettier
 
-exclude: ^src
+exclude: ^(src|bindings)
