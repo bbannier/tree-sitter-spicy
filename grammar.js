@@ -227,7 +227,7 @@ module.exports = grammar({
         ),
       ),
 
-    sink: $ => seq($.self_id, ".", $.ident),
+    sink: $ => seq(optional(seq($.self_id, ".")), $.ident),
     sink_decl: $ => seq("sink", $.ident, ";"),
 
     optional: _ => "&optional",
