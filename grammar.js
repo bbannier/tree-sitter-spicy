@@ -162,7 +162,10 @@ module.exports = grammar({
         seq(
           optional(commaSep1(choice("*", $.expression))),
           "->",
-          choice($.field_decl, seq("{", repeat($.field_decl), "}")),
+          choice(
+            $.field_decl,
+            seq("{", choice(repeat($.field_decl), $.unit_switch), "}"),
+          ),
         ),
       ),
 

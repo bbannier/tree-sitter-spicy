@@ -1837,6 +1837,10 @@
         {
           "type": "field_decl",
           "named": true
+        },
+        {
+          "type": "unit_switch",
+          "named": true
         }
       ]
     }

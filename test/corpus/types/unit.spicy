@@ -842,6 +842,41 @@ type test = unit {
           (regexp))))))
 
 ================================================================================
+Switch nested
+================================================================================
+
+type X = unit {
+  switch (True) {
+    * -> {
+      switch (True) {
+        * -> x: uint8;
+      };
+    }
+  };
+};
+
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident
+      (name))
+    (unit_switch
+      (expression
+        (boolean))
+      (unit_switch_case
+        (unit_switch
+          (expression
+            (boolean))
+          (unit_switch_case
+            (field_decl
+              (ident
+                (name))
+              (typename
+                (ident
+                  (name))))))))))
+
+================================================================================
 Field types w/ parse attributes
 ================================================================================
 

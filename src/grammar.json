@@ -1058,11 +1058,20 @@
                     "value": "{"
                   },
                   {
-                    "type": "REPEAT",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "field_decl"
-                    }
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "REPEAT",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "field_decl"
+                        }
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "unit_switch"
+                      }
+                    ]
                   },
                   {
                     "type": "STRING",
