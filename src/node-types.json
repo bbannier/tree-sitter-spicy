@@ -563,6 +563,16 @@
           }
         ]
       },
+      "sink": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
       "skip": {
         "multiple": false,
         "required": false,
@@ -644,10 +654,6 @@
         },
         {
           "type": "is_debug",
-          "named": true
-        },
-        {
-          "type": "sink",
           "named": true
         }
       ]
@@ -1350,25 +1356,6 @@
         },
         {
           "type": "ident",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "sink",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "ident",
-          "named": true
-        },
-        {
-          "type": "self_id",
           "named": true
         }
       ]

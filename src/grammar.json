@@ -1472,8 +1472,12 @@
                       "value": "->"
                     },
                     {
-                      "type": "SYMBOL",
-                      "name": "sink"
+                      "type": "FIELD",
+                      "name": "sink",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "expression"
+                      }
                     }
                   ]
                 }
@@ -1557,36 +1561,6 @@
           }
         ]
       }
-    },
-    "sink": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "self_id"
-                },
-                {
-                  "type": "STRING",
-                  "value": "."
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ident"
-        }
-      ]
     },
     "sink_decl": {
       "type": "SEQ",

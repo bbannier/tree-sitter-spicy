@@ -219,7 +219,7 @@ module.exports = grammar({
             "conditional",
             optional(prec(2000, seq("if", "(", $.expression, ")"))),
           ),
-          optional(prec.left(seq("->", $.sink))),
+          optional(prec.left(seq("->", field("sink", $.expression)))),
           choice(
             seq(
               seq(optional($.is_debug), optional($.foreach)),
@@ -230,7 +230,6 @@ module.exports = grammar({
         ),
       ),
 
-    sink: $ => seq(optional(seq($.self_id, ".")), $.ident),
     sink_decl: $ => seq("sink", $.ident, ";"),
 
     optional: _ => "&optional",

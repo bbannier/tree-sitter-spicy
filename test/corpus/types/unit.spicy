@@ -162,10 +162,13 @@ type Main = unit {
           (name)))
       (attribute
         (attribute_name))
-      (sink
-        (self_id)
-        (ident
-          (name))))
+      (expression
+        (type_member
+          (expression
+            (self_id))
+          (type_member_ident
+            (ident
+              (name))))))
     (sink_decl
       (ident
         (name)))))
@@ -174,8 +177,9 @@ type Main = unit {
 Sink external
 ================================================================================
 
-type Main = unit(s: sink&) {
+type Main = unit(s: sink&, other: Unit) {
     : bytes &eod -> s;
+    : bytes &eod -> other.s;
 };
 
 --------------------------------------------------------------------------------
@@ -189,6 +193,11 @@ type Main = unit(s: sink&) {
         (name))
       (typename
         (ident
+          (name)))
+      (ident
+        (name))
+      (typename
+        (ident
           (name))))
     (field_decl
       (typename
@@ -196,9 +205,23 @@ type Main = unit(s: sink&) {
           (name)))
       (attribute
         (attribute_name))
-      (sink
+      (expression
         (ident
-          (name))))))
+          (name))))
+    (field_decl
+      (typename
+        (ident
+          (name)))
+      (attribute
+        (attribute_name))
+      (expression
+        (type_member
+          (expression
+            (ident
+              (name)))
+          (type_member_ident
+            (ident
+              (name))))))))
 
 ================================================================================
 Hook decl
