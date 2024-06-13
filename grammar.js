@@ -440,24 +440,23 @@ module.exports = grammar({
       prec(
         4000,
         choice(
-          seq(
-            $.ident,
-            repeat(
-              seq(
-                "<",
-                commaSep1(
-                  seq(
-                    optional(field("name", seq($.ident, ":"))),
-                    field("type_", $.typename),
-                  ),
-                ),
-                ">",
-              ),
-            ),
-            repeat(choice("&", "[]")),
-          ),
+          seq(choice($.ident, $.parameterized_type), repeat(choice("&", "[]"))),
           $.bitfield,
         ),
+      ),
+
+    parameterized_type: $ =>
+      seq(
+        choice("vector", "set", "optional", "result", "tuple"),
+        "<",
+        commaSep1(
+          seq(
+            // Allow for named fields in tuples.
+            optional(field("name", seq($.ident, ":"))),
+            field("type_", $.typename),
+          ),
+        ),
+        ">",
       ),
 
     cast: $ => seq("cast", "<", $.ident, ">", "(", $.expression, ")"),

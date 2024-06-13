@@ -13,14 +13,13 @@ type X = bitfield(8) {
     (ident
       (name))
     (typename
-      (ident
-        (name))
-      (typename
-        (ident
-          (name)))
-      (typename
-        (ident
-          (name)))))
+      (parameterized_type
+        (typename
+          (ident
+            (name)))
+        (typename
+          (ident
+            (name))))))
   (type_decl
     (ident
       (name))
@@ -132,21 +131,20 @@ global tu: tuple<a: int32, string, c: bool> = (1, "2", True);
     (ident
       (name))
     (typename
-      (ident
-        (name))
-      (ident
-        (name))
-      (typename
+      (parameterized_type
         (ident
-          (name)))
-      (typename
+          (name))
+        (typename
+          (ident
+            (name)))
+        (typename
+          (ident
+            (name)))
         (ident
-          (name)))
-      (ident
-        (name))
-      (typename
-        (ident
-          (name))))
+          (name))
+        (typename
+          (ident
+            (name)))))
     (expression
       (tuple
         (expression
@@ -155,3 +153,80 @@ global tu: tuple<a: int32, string, c: bool> = (1, "2", True);
           (string))
         (expression
           (boolean))))))
+
+====
+Hardcoded parameterized types
+====
+global xs: vector<uint64>;
+global xs: set<uint64>;
+global xs: optional<uint64>;
+global xs: result<uint64>;
+global xs: tuple<uint64, string>;
+global xs: tuple<a: uint64, b: string>;
+----
+
+(module
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
+        (typename
+          (ident
+            (name))))))
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
+        (typename
+          (ident
+            (name))))))
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
+        (typename
+          (ident
+            (name))))))
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
+        (typename
+          (ident
+            (name))))))
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
+        (typename
+          (ident
+            (name)))
+        (typename
+          (ident
+            (name))))))
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
+        (ident
+          (name))
+        (typename
+          (ident
+            (name)))
+        (ident
+          (name))
+        (typename
+          (ident
+            (name)))))))
