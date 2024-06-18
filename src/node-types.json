@@ -706,6 +706,10 @@
       "required": true,
       "types": [
         {
+          "type": "expression",
+          "named": true
+        },
+        {
           "type": "ident",
           "named": true
         },
@@ -2307,11 +2311,11 @@
   },
   {
     "type": "optional",
-    "named": true
+    "named": false
   },
   {
     "type": "optional",
-    "named": false
+    "named": true
   },
   {
     "type": "port",

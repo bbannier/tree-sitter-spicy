@@ -47,7 +47,15 @@ module.exports = grammar({
         repeat($.attribute),
         choice($.block, ";"),
       ),
-    function_arg: $ => seq(optional($.inout), $.ident, ":", $.typename),
+
+    function_arg: $ =>
+      seq(
+        optional($.inout),
+        field("arg", $.ident),
+        ":",
+        field("type_", $.typename),
+        optional(seq("=", field("default", $.expression))),
+      ),
 
     linkage: _ => choice("local", "global", "const", "var"),
 

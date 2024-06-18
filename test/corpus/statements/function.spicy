@@ -97,3 +97,31 @@ function foo(x: uint8, inout y: uint8, inout z: uint8) {}
         (ident
           (name))))
     (block)))
+
+================================================================================
+Function arg default value
+================================================================================
+
+function foo(x: uint8, y: uint8 = 0) {}
+
+--------------------------------------------------------------------------------
+
+(module
+  (function_decl
+    (ident
+      (name))
+    (function_arg
+      (ident
+        (name))
+      (typename
+        (ident
+          (name))))
+    (function_arg
+      (ident
+        (name))
+      (typename
+        (ident
+          (name)))
+      (expression
+        (integer)))
+    (block)))
