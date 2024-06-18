@@ -36,9 +36,9 @@ function fn(x: uint8) {}
     name: (ident
       (name))
     arg: (function_arg
-      (ident
+      arg: (ident
         (name))
-      (typename
+      type_: (typename
         (ident
           (name))))
     (block)))

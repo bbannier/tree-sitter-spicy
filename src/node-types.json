@@ -700,25 +700,44 @@
   {
     "type": "function_arg",
     "named": true,
-    "fields": {},
+    "fields": {
+      "arg": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "default": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "type_": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "typename",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
-          "type": "expression",
-          "named": true
-        },
-        {
-          "type": "ident",
-          "named": true
-        },
-        {
           "type": "inout",
-          "named": true
-        },
-        {
-          "type": "typename",
           "named": true
         }
       ]

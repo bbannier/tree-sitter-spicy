@@ -247,16 +247,24 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "ident"
+          "type": "FIELD",
+          "name": "arg",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ident"
+          }
         },
         {
           "type": "STRING",
           "value": ":"
         },
         {
-          "type": "SYMBOL",
-          "name": "typename"
+          "type": "FIELD",
+          "name": "type_",
+          "content": {
+            "type": "SYMBOL",
+            "name": "typename"
+          }
         },
         {
           "type": "CHOICE",
@@ -269,8 +277,12 @@
                   "value": "="
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "expression"
+                  "type": "FIELD",
+                  "name": "default",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
                 }
               ]
             },
