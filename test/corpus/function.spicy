@@ -123,6 +123,7 @@ f(1, b"123", a);
 Templated call
 ====
 set<uint8>(1, 2, 3);
+unpack<uint8>(data);
 ----
 
 (module
@@ -138,4 +139,14 @@ set<uint8>(1, 2, 3);
         (expression
           (integer))
         (expression
-          (integer))))))
+          (integer)))))
+  (statement
+    (expression
+      (function_call
+        (indent)
+        (typename
+          (ident
+            (name)))
+        (expression
+          (ident
+            (name)))))))

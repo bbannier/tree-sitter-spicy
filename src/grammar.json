@@ -2941,11 +2941,7 @@
       "members": [
         {
           "type": "STRING",
-          "value": "vector"
-        },
-        {
-          "type": "STRING",
-          "value": "set"
+          "value": "iterator"
         },
         {
           "type": "STRING",
@@ -2957,15 +2953,28 @@
         },
         {
           "type": "STRING",
+          "value": "set"
+        },
+        {
+          "type": "STRING",
           "value": "tuple"
         },
         {
           "type": "STRING",
-          "value": "iterator"
+          "value": "vector"
         },
         {
           "type": "STRING",
           "value": "view"
+        }
+      ]
+    },
+    "_parameterized_function_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "unpack"
         }
       ]
     },
@@ -3147,8 +3156,17 @@
                 "content": {
                   "type": "ALIAS",
                   "content": {
-                    "type": "SYMBOL",
-                    "name": "_parameterized_type_name"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_parameterized_function_name"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_parameterized_type_name"
+                      }
+                    ]
                   },
                   "named": true,
                   "value": "indent"

@@ -482,6 +482,8 @@ module.exports = grammar({
         "view",
       ),
 
+    _parameterized_function_name: () => choice("unpack"),
+
     cast: $ => seq("cast", "<", $.ident, ">", "(", $.expression, ")"),
 
     new: $ => seq("new", $.expression),
@@ -501,7 +503,16 @@ module.exports = grammar({
           ),
           // Templated call.
           seq(
-            field("name", alias($._parameterized_type_name, $.indent)),
+            field(
+              "name",
+              alias(
+                choice(
+                  $._parameterized_function_name,
+                  $._parameterized_type_name,
+                ),
+                $.indent,
+              ),
+            ),
             field(
               "parameters",
               optional(
