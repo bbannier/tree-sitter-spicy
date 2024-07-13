@@ -754,6 +754,32 @@
           {
             "type": "ident",
             "named": true
+          },
+          {
+            "type": "indent",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          },
+          {
+            "type": "typename",
+            "named": true
           }
         ]
       }
@@ -959,6 +985,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "indent",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "integer",
@@ -2330,11 +2361,11 @@
   },
   {
     "type": "optional",
-    "named": false
+    "named": true
   },
   {
     "type": "optional",
-    "named": true
+    "named": false
   },
   {
     "type": "port",

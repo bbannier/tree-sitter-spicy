@@ -154,8 +154,7 @@ Set membership
           (integer))
         (expression
           (function_call
-            (ident
-              (name))
+            (indent)
             (expression
               (integer))
             (expression
@@ -169,8 +168,7 @@ Set membership
           (integer))
         (expression
           (function_call
-            (ident
-              (name))
+            (indent)
             (expression
               (integer))
             (expression

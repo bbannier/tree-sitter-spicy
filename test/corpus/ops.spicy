@@ -54,8 +54,7 @@ local b = |vector(|xs|)| + 1;
           (len
             (expression
               (function_call
-                name: (ident
-                  (name))
+                name: (indent)
                 (expression
                   (len
                     (expression

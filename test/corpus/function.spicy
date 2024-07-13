@@ -118,3 +118,24 @@ f(1, b"123", a);
         (expression
           (ident
             (name)))))))
+
+====
+Templated call
+====
+set<uint8>(1, 2, 3);
+----
+
+(module
+  (statement
+    (expression
+      (function_call
+        (indent)
+        (typename
+          (ident
+            (name)))
+        (expression
+          (integer))
+        (expression
+          (integer))
+        (expression
+          (integer))))))

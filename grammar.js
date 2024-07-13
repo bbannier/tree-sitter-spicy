@@ -1,3 +1,6 @@
+/// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
+
 module.exports = grammar({
   name: "spicy",
 
@@ -10,7 +13,7 @@ module.exports = grammar({
     /[\s\f\uFEFF\u2060\u200B]|\\\r?\n/,
   ],
 
-  conflicts: $ => [[$.ident]],
+  conflicts: $ => [[$.ident], [$.parameterized_type, $.function_call]],
 
   rules: {
     module: $ => field("entities", optional($._entities)),
@@ -455,7 +458,7 @@ module.exports = grammar({
 
     parameterized_type: $ =>
       seq(
-        choice("vector", "set", "optional", "result", "tuple"),
+        $._parameterized_type_name,
         "<",
         commaSep1(
           seq(
@@ -466,6 +469,9 @@ module.exports = grammar({
         ),
         ">",
       ),
+
+    _parameterized_type_name: () =>
+      choice("vector", "set", "optional", "result", "tuple"),
 
     cast: $ => seq("cast", "<", $.ident, ">", "(", $.expression, ")"),
 
@@ -479,9 +485,26 @@ module.exports = grammar({
     function_call: $ =>
       prec(
         1000,
-        seq(
-          field("name", $.ident),
-          seq("(", optional(commaSep1($.expression)), ")"),
+        choice(
+          seq(
+            field("name", $.ident),
+            seq("(", optional(commaSep1($.expression)), ")"),
+          ),
+          // Templated call.
+          seq(
+            field("name", alias($._parameterized_type_name, $.indent)),
+            field(
+              "parameters",
+              optional(
+                seq(
+                  "<",
+                  commaSep1($.typename),
+                  alias(token(prec(1, ">")), ">"),
+                ),
+              ),
+            ),
+            seq("(", optional(commaSep1($.expression)), ")"),
+          ),
         ),
       ),
 
