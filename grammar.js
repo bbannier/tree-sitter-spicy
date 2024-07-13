@@ -471,7 +471,16 @@ module.exports = grammar({
       ),
 
     _parameterized_type_name: () =>
-      choice("vector", "set", "optional", "result", "tuple"),
+      choice(
+        // `map` handled separately.
+        "iterator",
+        "optional",
+        "result",
+        "set",
+        "tuple",
+        "vector",
+        "view",
+      ),
 
     cast: $ => seq("cast", "<", $.ident, ">", "(", $.expression, ")"),
 

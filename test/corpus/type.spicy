@@ -163,6 +163,8 @@ global xs: optional<uint64>;
 global xs: result<uint64>;
 global xs: tuple<uint64, string>;
 global xs: tuple<a: uint64, b: string>;
+global i: iterator<bytes>;
+global v: view<stream>;
 ----
 
 (module
@@ -227,6 +229,24 @@ global xs: tuple<a: uint64, b: string>;
             (name)))
         (ident
           (name))
+        (typename
+          (ident
+            (name))))))
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
+        (typename
+          (ident
+            (name))))))
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
         (typename
           (ident
             (name)))))))

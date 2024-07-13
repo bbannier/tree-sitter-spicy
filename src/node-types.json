@@ -2336,6 +2336,10 @@
     "named": true
   },
   {
+    "type": "iterator",
+    "named": false
+  },
+  {
     "type": "local",
     "named": false
   },
@@ -2361,11 +2365,11 @@
   },
   {
     "type": "optional",
-    "named": true
+    "named": false
   },
   {
     "type": "optional",
-    "named": false
+    "named": true
   },
   {
     "type": "port",
@@ -2449,6 +2453,10 @@
   },
   {
     "type": "vector",
+    "named": false
+  },
+  {
+    "type": "view",
     "named": false
   },
   {
