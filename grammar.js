@@ -259,6 +259,7 @@ module.exports = grammar({
       seq(
         field("property_name", $.property_name),
         optional(seq("=", field("property_value", $.expression))),
+        optional($.attribute),
       ),
 
     visibility: _ => choice("public"),

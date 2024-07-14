@@ -62,6 +62,7 @@ Unit properties
 type A = unit {
   %mime-type = "foo/bar";
   %port = 8080;
+  %port = 100/tcp &originator;
 };
 
 --------------------------------------------------------------------------------
@@ -77,7 +78,13 @@ type A = unit {
     (property
       (property_name)
       (expression
-        (integer)))))
+        (integer)))
+    (property
+      (property_name)
+      (expression
+        (port))
+      (attribute
+        (attribute_name)))))
 
 ================================================================================
 Vector field
