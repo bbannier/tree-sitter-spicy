@@ -1999,6 +1999,10 @@
           "named": true
         },
         {
+          "type": "regexp",
+          "named": true
+        },
+        {
           "type": "typename",
           "named": true
         }

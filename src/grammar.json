@@ -3910,8 +3910,17 @@
                 "name": "typename"
               },
               {
-                "type": "SYMBOL",
-                "name": "bytes"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "bytes"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "regexp"
+                  }
+                ]
               }
             ]
           },

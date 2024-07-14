@@ -610,7 +610,7 @@ module.exports = grammar({
       prec.right(
         200,
         seq(
-          choice($.typename, $.bytes),
+          choice($.typename, choice($.bytes, $.regexp)),
           optional(seq("(", optional(commaSep1($.expression)), ")")),
         ),
       ),

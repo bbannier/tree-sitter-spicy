@@ -1202,3 +1202,23 @@ type X = unit { xs: (ABC)[len]; };
         (expression
           (ident
             (name)))))))
+
+================================================================================
+List w/ element type attributes
+================================================================================
+type X = unit {
+    xs: (/(A|B|C)/ &synchronize)[];
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident
+      (name))
+    (field_decl
+      (ident
+        (name))
+      (vector
+        (regexp)
+        (attribute
+          (attribute_name))))))
