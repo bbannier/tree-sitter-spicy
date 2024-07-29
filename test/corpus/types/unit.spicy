@@ -885,6 +885,17 @@ type X = unit {
   };
 };
 
+# Nested unit switch with lahead.
+type test5 = unit {
+    switch {
+        -> switch {
+            -> a: b"a";
+            -> b: b"b";
+        };
+        -> c: b"c";
+    };
+};
+
 --------------------------------------------------------------------------------
 
 (module
@@ -904,7 +915,29 @@ type X = unit {
                 (name))
               (typename
                 (ident
-                  (name))))))))))
+                  (name)))))))))
+  (comment)
+  (type_decl
+    (ident
+      (name))
+    (unit_switch
+      (unit_switch_case
+        (unit_switch
+          (unit_switch_case
+            (field_decl
+              (ident
+                (name))
+              (bytes)))
+          (unit_switch_case
+            (field_decl
+              (ident
+                (name))
+              (bytes)))))
+      (unit_switch_case
+        (field_decl
+          (ident
+            (name))
+          (bytes))))))
 
 ================================================================================
 Field types w/ parse attributes

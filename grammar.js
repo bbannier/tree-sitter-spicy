@@ -175,6 +175,7 @@ module.exports = grammar({
           "->",
           choice(
             $.field_decl,
+            $.unit_switch,
             seq("{", choice(repeat($.field_decl), $.unit_switch), "}"),
           ),
         ),

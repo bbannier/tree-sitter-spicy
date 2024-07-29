@@ -1084,6 +1084,10 @@
                 "name": "field_decl"
               },
               {
+                "type": "SYMBOL",
+                "name": "unit_switch"
+              },
+              {
                 "type": "SEQ",
                 "members": [
                   {
