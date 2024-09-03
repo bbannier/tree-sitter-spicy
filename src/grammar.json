@@ -2961,6 +2961,10 @@
         },
         {
           "type": "STRING",
+          "value": "map"
+        },
+        {
+          "type": "STRING",
           "value": "optional"
         },
         {
@@ -4632,6 +4636,10 @@
     [
       "parameterized_type",
       "function_call"
+    ],
+    [
+      "_parameterized_type_name",
+      "map"
     ]
   ],
   "precedences": [],

@@ -158,6 +158,7 @@ global tu: tuple<a: int32, string, c: bool> = (1, "2", True);
 Hardcoded parameterized types
 ====
 global xs: vector<uint64>;
+global xs: map<bytes, bytes>;
 global xs: set<uint64>;
 global xs: optional<uint64>;
 global xs: result<uint64>;
@@ -174,6 +175,18 @@ global v: view<stream>;
       (name))
     (typename
       (parameterized_type
+        (typename
+          (ident
+            (name))))))
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
+        (typename
+          (ident
+            (name)))
         (typename
           (ident
             (name))))))

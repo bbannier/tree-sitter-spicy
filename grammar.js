@@ -13,7 +13,11 @@ module.exports = grammar({
     /[\s\f\uFEFF\u2060\u200B]|\\\r?\n/,
   ],
 
-  conflicts: $ => [[$.ident], [$.parameterized_type, $.function_call]],
+  conflicts: $ => [
+    [$.ident],
+    [$.parameterized_type, $.function_call],
+    [$._parameterized_type_name, $.map],
+  ],
 
   rules: {
     module: $ => field("entities", optional($._entities)),
@@ -476,6 +480,7 @@ module.exports = grammar({
       choice(
         // `map` handled separately.
         "iterator",
+        "map",
         "optional",
         "result",
         "set",
