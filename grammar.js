@@ -129,18 +129,19 @@ module.exports = grammar({
         "unit",
         optional($.params),
         "{",
-        repeat(
-          choice(
-            seq($.property, ";"),
-            field("field", $.field_decl),
-            $.sink_decl,
-            $.var_decl,
-            $.hook_decl,
-            $.unit_switch,
-          ),
-        ),
+        repeat($._unit_item),
         "}",
         repeat($.attribute),
+      ),
+
+    _unit_item: $ =>
+      choice(
+        seq($.property, ";"),
+        field("field", $.field_decl),
+        $.sink_decl,
+        $.var_decl,
+        $.hook_decl,
+        $.unit_switch,
       ),
 
     params: $ =>
