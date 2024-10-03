@@ -874,8 +874,12 @@
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
+        {
+          "type": "block",
+          "named": true
+        },
         {
           "type": "foreach",
           "named": true
@@ -893,7 +897,7 @@
           "named": true
         },
         {
-          "type": "statement",
+          "type": "is_error",
           "named": true
         },
         {
@@ -2343,6 +2347,10 @@
   },
   {
     "type": "is_debug",
+    "named": true
+  },
+  {
+    "type": "is_error",
     "named": true
   },
   {
