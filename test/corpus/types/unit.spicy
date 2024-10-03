@@ -1243,3 +1243,43 @@ type X = unit {
         (regexp)
         (attribute
           (attribute_name))))))
+
+================================================================================
+Error hooks
+================================================================================
+type Test = unit {
+    b: b"B" %error {}
+    on b %error {}
+};
+
+on Test::b(msg: string) %error {}
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident
+      (name))
+    (field_decl
+      (ident
+        (name))
+      (bytes)
+      (attribute
+        (attribute_name))
+      (block))
+    (hook_decl
+      (ident
+        (name))
+      (is_error)
+      (block)))
+  (hook_decl
+    (ident
+      (name)
+      (ident
+        (name)))
+    (ident
+      (name))
+    (typename
+      (ident
+        (name)))
+    (is_error)
+    (block)))

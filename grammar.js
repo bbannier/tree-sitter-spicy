@@ -17,6 +17,7 @@ module.exports = grammar({
     [$.ident],
     [$.parameterized_type, $.function_call],
     [$._parameterized_type_name, $.map],
+    [$.hook_decl],
   ],
 
   rules: {
@@ -189,22 +190,25 @@ module.exports = grammar({
     inout: _ => "inout",
 
     hook_decl: $ =>
-      seq(
-        "on",
-        field("name", choice($.ident, $._hook)),
-        choice(
-          seq(
-            optional(
-              seq("(", optional(commaSep1(seq($.ident, ":", $.typename))), ")"),
-            ),
-            optional(repeat(choice($.is_debug, $.hook_priority))),
-            $.block,
+      prec.right(
+        seq(
+          "on",
+          field("name", choice($.ident, $._hook)),
+          optional(
+            seq("(", optional(commaSep1(seq($.ident, ":", $.typename))), ")"),
           ),
-          $.foreach,
+          optional($.hook_priority),
+          choice(
+            seq(
+              seq(repeat(choice($.is_debug, $.is_error)), optional($.foreach)),
+              seq(repeat(choice($.is_debug, $.is_error)), optional($.block)),
+            ),
+          ),
         ),
       ),
 
     is_debug: _ => "%debug",
+    is_error: _ => "%error",
     is_skip: _ => "skip",
 
     hook_priority: $ => seq("priority", "=", optional("-"), $.integer),
