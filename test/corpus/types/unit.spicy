@@ -928,6 +928,100 @@ type test5 = unit {
           (bytes))))))
 
 ================================================================================
+If/else
+================================================================================
+type X = unit {
+     if (True) {
+         a1: bytes &size=2;
+         a2: bytes &size=2;
+     };
+
+     if (True) {
+         : void;
+     } else {
+         : void;
+         : void;
+     };
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident
+      (name))
+    (unit_if_else
+      (expression
+        (boolean))
+      (field_decl
+        (ident
+          (name))
+        (typename
+          (ident
+            (name)))
+        (attribute
+          (attribute_name)
+          (expression
+            (integer))))
+      (field_decl
+        (ident
+          (name))
+        (typename
+          (ident
+            (name)))
+        (attribute
+          (attribute_name)
+          (expression
+            (integer)))))
+    (unit_if_else
+      (expression
+        (boolean))
+      (field_decl
+        (void))
+      (field_decl
+        (void))
+      (field_decl
+        (void)))))
+
+================================================================================
+If/else attributes
+================================================================================
+type X = unit {
+    if (True) {
+    } &max-size=42 &requires=True;
+
+    if (True) {
+    } else {} &max-size=42 &requires=True;
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident
+      (name))
+    (unit_if_else
+      (expression
+        (boolean))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))
+      (attribute
+        (attribute_name)
+        (expression
+          (boolean))))
+    (unit_if_else
+      (expression
+        (boolean))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))
+      (attribute
+        (attribute_name)
+        (expression
+          (boolean))))))
+
+================================================================================
 Field types w/ parse attributes
 ================================================================================
 

@@ -143,6 +143,7 @@ module.exports = grammar({
         $.var_decl,
         $.hook_decl,
         $.unit_switch,
+        $.unit_if_else,
       ),
 
     params: $ =>
@@ -160,6 +161,18 @@ module.exports = grammar({
           ),
         ),
         token(")"),
+      ),
+
+    unit_if_else: $ =>
+      seq(
+        "if",
+        optional(seq("(", $.expression, ")")),
+        "{",
+        repeat($._unit_item),
+        "}",
+        optional(seq("else", "{", repeat($._unit_item), "}")),
+        repeat($.attribute),
+        ";",
       ),
 
     unit_switch: $ =>

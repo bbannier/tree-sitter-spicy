@@ -1720,6 +1720,10 @@
           "named": true
         },
         {
+          "type": "unit_if_else",
+          "named": true
+        },
+        {
           "type": "unit_switch",
           "named": true
         },
@@ -1858,6 +1862,60 @@
       "types": [
         {
           "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unit_if_else",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "field_decl",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "hook_decl",
+          "named": true
+        },
+        {
+          "type": "property",
+          "named": true
+        },
+        {
+          "type": "sink_decl",
+          "named": true
+        },
+        {
+          "type": "unit_if_else",
+          "named": true
+        },
+        {
+          "type": "unit_switch",
+          "named": true
+        },
+        {
+          "type": "var_decl",
           "named": true
         }
       ]
