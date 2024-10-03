@@ -491,6 +491,7 @@ module.exports = grammar({
             field("type_", $.typename),
           ),
         ),
+        optional(","),
         ">",
       ),
 

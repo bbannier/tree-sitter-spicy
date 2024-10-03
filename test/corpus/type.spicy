@@ -263,3 +263,23 @@ global v: view<stream>;
         (typename
           (ident
             (name)))))))
+
+================================================================================
+Parameterizded type with trailing comma
+================================================================================
+global xs: tuple<uint64, string, >;
+--------------------------------------------------------------------------------
+
+(module
+  (var_decl
+    (linkage)
+    (ident
+      (name))
+    (typename
+      (parameterized_type
+        (typename
+          (ident
+            (name)))
+        (typename
+          (ident
+            (name)))))))
