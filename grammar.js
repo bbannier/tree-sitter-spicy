@@ -198,7 +198,7 @@ module.exports = grammar({
               seq("(", optional(commaSep1(seq($.ident, ":", $.typename))), ")"),
             ),
             optional(repeat(choice($.is_debug, $.hook_priority))),
-            $.statement,
+            $.block,
           ),
           $.foreach,
         ),

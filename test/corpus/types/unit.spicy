@@ -239,7 +239,7 @@ type Sub = unit {
 
     on %done { print self.s; }
     on %gap(seq: uint64, len: uint64)  { 1; }
-    on %skipped(seq: uint64) 2;
+    on %skipped(seq: uint64) { 2; }
     on s { 3; }
 };
 
@@ -260,17 +260,16 @@ type Sub = unit {
     (hook_decl
       (hook_name
         (ident))
-      (statement
-        (block
-          (statement
-            (print
-              (expression
-                (type_member
-                  (expression
-                    (self_id))
-                  (type_member_ident
-                    (ident
-                      (name))))))))))
+      (block
+        (statement
+          (print
+            (expression
+              (type_member
+                (expression
+                  (self_id))
+                (type_member_ident
+                  (ident
+                    (name)))))))))
     (hook_decl
       (hook_name
         (ident))
@@ -284,11 +283,10 @@ type Sub = unit {
       (typename
         (ident
           (name)))
-      (statement
-        (block
-          (statement
-            (expression
-              (integer))))))
+      (block
+        (statement
+          (expression
+            (integer)))))
     (hook_decl
       (hook_name
         (ident))
@@ -297,17 +295,17 @@ type Sub = unit {
       (typename
         (ident
           (name)))
-      (statement
-        (expression
-          (integer))))
+      (block
+        (statement
+          (expression
+            (integer)))))
     (hook_decl
       (ident
         (name))
-      (statement
-        (block
-          (statement
-            (expression
-              (integer))))))))
+      (block
+        (statement
+          (expression
+            (integer)))))))
 
 ================================================================================
 Foreach hook
@@ -339,8 +337,7 @@ type Test = unit {
     (hook_decl
       (hook_name
         (ident))
-      (statement
-        (block)))))
+      (block))))
 
 ================================================================================
 Checked field access
@@ -411,8 +408,7 @@ type Test = unit {
       (hook_name
         (ident))
       (is_debug)
-      (statement
-        (block)))
+      (block))
     (hook_decl
       (hook_name
         (ident))
@@ -422,8 +418,7 @@ type Test = unit {
         (ident
           (name)))
       (is_debug)
-      (statement
-        (block)))))
+      (block))))
 
 ================================================================================
 External hooks
@@ -455,8 +450,7 @@ on test::a {}
       (name)
       (ident
         (name)))
-    (statement
-      (block))))
+    (block)))
 
 ================================================================================
 Imported hooks
@@ -476,8 +470,7 @@ on Mini::Foo::%init {}
         (name)
         (ident
           (name))))
-    (statement
-      (block)))
+    (block))
   (hook_decl
     (ident
       (name)
@@ -485,8 +478,7 @@ on Mini::Foo::%init {}
         (name)
         (ident
           (name))))
-    (statement
-      (block)))
+    (block))
   (hook_decl
     (ident
       (name)
@@ -494,8 +486,7 @@ on Mini::Foo::%init {}
         (name)))
     (hook_name
       (ident))
-    (statement
-      (block))))
+    (block)))
 
 ================================================================================
 Hook priorities
@@ -531,16 +522,6 @@ on tA::a priority=15 { }
         (name))
       (hook_priority
         (integer))
-      (statement
-        (block))))
-  (hook_decl
-    (ident
-      (name)
-      (ident
-        (name)))
-    (hook_priority
-      (integer))
-    (statement
       (block)))
   (hook_decl
     (ident
@@ -549,8 +530,15 @@ on tA::a priority=15 { }
         (name)))
     (hook_priority
       (integer))
-    (statement
-      (block))))
+    (block))
+  (hook_decl
+    (ident
+      (name)
+      (ident
+        (name)))
+    (hook_priority
+      (integer))
+    (block)))
 
 ================================================================================
 Vector fields

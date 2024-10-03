@@ -51,17 +51,16 @@ assert a1.family() == spicy::AddressFamily::IPv4;
     (hook_decl
       (hook_name
         (ident))
-      (statement
-        (block
-          (statement
-            (print
-              (expression
-                (type_member
-                  (expression
-                    (self_id))
-                  (type_member_ident
-                    (ident
-                      (name)))))))))))
+      (block
+        (statement
+          (print
+            (expression
+              (type_member
+                (expression
+                  (self_id))
+                (type_member_ident
+                  (ident
+                    (name))))))))))
   (var_decl
     (linkage)
     (ident
