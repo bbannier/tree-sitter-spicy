@@ -1393,3 +1393,72 @@ on Test::b(msg: string) %error {}
         (name)))
     (is_error)
     (block)))
+
+================================================================================
+Field type in parens
+================================================================================
+type X = unit {
+    a: (uint8);
+    a: (uint8 &max-size=4 &size=3);
+    a: (uint8 &max-size=4 &size=3) &max-size=3;
+    a: (uint8 &max-size=4 &size=3)[];
+};
+--------------------------------------------------------------------------------
+
+(module
+  (type_decl
+    (ident
+      (name))
+    (field_decl
+      (ident
+        (name))
+      (typename
+        (ident
+          (name))))
+    (field_decl
+      (ident
+        (name))
+      (typename
+        (ident
+          (name)))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer))))
+    (field_decl
+      (ident
+        (name))
+      (typename
+        (ident
+          (name)))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer)))
+      (attribute
+        (attribute_name)
+        (expression
+          (integer))))
+    (field_decl
+      (ident
+        (name))
+      (vector
+        (typename
+          (ident
+            (name)))
+        (attribute
+          (attribute_name)
+          (expression
+            (integer)))
+        (attribute
+          (attribute_name)
+          (expression
+            (integer)))))))

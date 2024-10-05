@@ -232,6 +232,27 @@ module.exports = grammar({
           field("name", optional($.ident)),
           ":",
           field("skip", optional($.is_skip)),
+          choice($._parse_type, seq("(", $._parse_type, ")")),
+          field("attributes", repeat($.attribute)),
+          field(
+            "conditional",
+            optional(prec(2000, seq("if", "(", $.expression, ")"))),
+          ),
+          optional(prec.left(seq("->", field("sink", $.expression)))),
+          choice(
+            seq(
+              seq(optional($.is_debug), optional($.foreach)),
+              seq(optional($.is_debug), optional($.block)),
+            ),
+            ";",
+          ),
+        ),
+      ),
+
+    _parse_type: $ =>
+      prec.right(
+        50,
+        seq(
           field(
             "type_",
             choice(
@@ -249,18 +270,6 @@ module.exports = grammar({
             optional(seq("(", optional(commaSep1($.expression)), ")")),
           ),
           field("attributes", repeat($.attribute)),
-          field(
-            "conditional",
-            optional(prec(2000, seq("if", "(", $.expression, ")"))),
-          ),
-          optional(prec.left(seq("->", field("sink", $.expression)))),
-          choice(
-            seq(
-              seq(optional($.is_debug), optional($.foreach)),
-              seq(optional($.is_debug), optional($.block)),
-            ),
-            ";",
-          ),
         ),
       ),
 
@@ -621,15 +630,7 @@ module.exports = grammar({
       prec.right(
         100,
         seq(
-          choice(
-            $._vector_element_type,
-            seq(
-              "(",
-              $._vector_element_type,
-              optional(repeat($.attribute)),
-              ")",
-            ),
-          ),
+          choice($._vector_element_type, seq("(", $._parse_type, ")")),
           "[",
           optional($.expression),
           "]",
