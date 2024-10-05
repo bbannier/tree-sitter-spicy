@@ -270,14 +270,17 @@ module.exports = grammar({
 
     foreach: $ => seq("foreach", $.block),
 
-    attribute_name: _ => /[&|%][a-zA-Z_][a-zA-z-0-9|-]*/,
+    _attribute__or_property_name: _ =>
+      /[&|%][a-zA-Z_][a-zA-Z0-9_]*(-[a-zA-Z0-9_]+)*/,
+
+    attribute_name: $ => $._attribute__or_property_name,
     attribute: $ =>
       seq(
         field("attribute_name", $.attribute_name),
         optional(seq("=", field("attribute_value", $.expression))),
       ),
 
-    property_name: _ => /[&|%][a-zA-Z_][a-zA-z-0-9|-]*/,
+    property_name: $ => $._attribute__or_property_name,
     property: $ =>
       seq(
         field("property_name", $.property_name),
