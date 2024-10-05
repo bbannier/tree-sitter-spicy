@@ -470,6 +470,7 @@ module.exports = grammar({
           $.type_member_checked,
           $.type_member_check,
           $.ternary,
+          $.error_literal,
           prec(2000, seq("(", $.expression, ")")),
         ),
       ),
@@ -580,6 +581,8 @@ module.exports = grammar({
 
     ternary: $ =>
       prec.left(50, seq($.expression, "?", $.expression, ":", $.expression)),
+
+    error_literal: $ => seq("error", $.string),
 
     block: $ => seq("{", repeat(choice($.statement, $.var_decl)), "}"),
 
