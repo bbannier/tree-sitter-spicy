@@ -25,5 +25,3 @@ tree-sitter = "*"
 
 [build-dependencies]
 cc = "1.0.87"
-
-[workspace]
