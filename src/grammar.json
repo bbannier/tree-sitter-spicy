@@ -613,7 +613,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "integer"
+                  "name": "expression"
                 }
               ]
             },
