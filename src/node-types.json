@@ -340,6 +340,10 @@
       "required": false,
       "types": [
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         }
@@ -1110,6 +1114,7 @@
   {
     "type": "module",
     "named": true,
+    "root": true,
     "fields": {
       "entities": {
         "multiple": true,
@@ -2535,11 +2540,11 @@
   },
   {
     "type": "optional",
-    "named": true
+    "named": false
   },
   {
     "type": "optional",
-    "named": false
+    "named": true
   },
   {
     "type": "port",

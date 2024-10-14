@@ -108,7 +108,11 @@ module.exports = grammar({
         ";",
       ),
 
-    enum_label: $ => seq(field("name", $.ident), optional(seq("=", $.integer))),
+    enum_label: $ =>
+      seq(
+        field("name", $.ident),
+        optional(seq("=", choice($.integer, $.char))),
+      ),
 
     struct_decl: $ =>
       seq(
