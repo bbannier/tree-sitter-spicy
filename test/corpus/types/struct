@@ -4,6 +4,7 @@ Struct
 
 type S = struct {};
 type S = struct { a: uint8; s: S &foo; };
+type S = struct { not_a_parseable_type: vector<uint8>; };
 
 --------------------------------------------------------------------------------
 
@@ -27,4 +28,15 @@ type S = struct { a: uint8; s: S &foo; };
         (ident
           (name)))
       (attribute
-        (attribute_name)))))
+        (attribute_name))))
+  (struct_decl
+    (ident
+      (name))
+    (field_decl
+      (ident
+        (name))
+      (typename
+        (parameterized_type
+          (typename
+            (ident
+              (name))))))))

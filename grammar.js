@@ -122,10 +122,13 @@ module.exports = grammar({
         "=",
         "struct",
         "{",
-        repeat($.field_decl),
+        repeat(alias($._struct_field, $.field_decl)),
         "}",
         ";",
       ),
+
+    _struct_field: $ =>
+      seq(field("name", $.ident), ":", $.typename, optional($.attribute), ";"),
 
     library_type: $ => seq("__library_type", "(", $.string, ")"),
 

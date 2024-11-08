@@ -608,7 +608,7 @@
       },
       "type_": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "array_access",
@@ -668,6 +668,10 @@
       "required": false,
       "types": [
         {
+          "type": "attribute",
+          "named": true
+        },
+        {
           "type": "block",
           "named": true
         },
@@ -677,6 +681,10 @@
         },
         {
           "type": "is_debug",
+          "named": true
+        },
+        {
+          "type": "typename",
           "named": true
         }
       ]
