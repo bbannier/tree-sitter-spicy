@@ -1986,13 +1986,8 @@
       ]
     },
     "visibility": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "public"
-        }
-      ]
+      "type": "STRING",
+      "value": "public"
     },
     "statement": {
       "type": "PREC",
@@ -3262,13 +3257,8 @@
       ]
     },
     "_parameterized_function_name": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "unpack"
-        }
-      ]
+      "type": "STRING",
+      "value": "unpack"
     },
     "cast": {
       "type": "SEQ",

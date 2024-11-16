@@ -304,7 +304,7 @@ module.exports = grammar({
         optional($.attribute),
       ),
 
-    visibility: _ => choice("public"),
+    visibility: _ => "public",
 
     statement: $ =>
       prec(
@@ -528,7 +528,7 @@ module.exports = grammar({
         "view",
       ),
 
-    _parameterized_function_name: () => choice("unpack"),
+    _parameterized_function_name: () => "unpack",
 
     cast: $ => seq("cast", "<", $.ident, ">", "(", $.expression, ")"),
 

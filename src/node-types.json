@@ -2171,11 +2171,6 @@
     }
   },
   {
-    "type": "visibility",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "while",
     "named": true,
     "fields": {},
@@ -2567,10 +2562,6 @@
     "named": false
   },
   {
-    "type": "public",
-    "named": false
-  },
-  {
     "type": "regexp",
     "named": true
   },
@@ -2645,6 +2636,10 @@
   {
     "type": "view",
     "named": false
+  },
+  {
+    "type": "visibility",
+    "named": true
   },
   {
     "type": "void",
