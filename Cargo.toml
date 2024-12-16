@@ -17,11 +17,10 @@ include = ["bindings/rust/*", "grammar.js", "queries/*", "src/*"]
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-# Do not pull in specific tree-sitter version so consumers can pick on which
-# fits their requirements. The generated sources should be built with the
-# version pinned in `package.json`; the Rust tests are expected to use the
-# latest version.
-tree-sitter = "*"
+tree-sitter-language = "0.1.3"
 
 [build-dependencies]
 cc = "1.0.87"
+
+[dev-dependencies]
+tree-sitter = "0.24.5"
