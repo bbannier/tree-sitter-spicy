@@ -1,36 +1,57 @@
 ================================================================================
-Assert
+assert
 ================================================================================
 
 assert 1;
 assert 1 == 1;
+
+--------------------------------------------------------------------------------
+
+(module
+  entities: (statement
+    (assert
+      (expression
+        (integer))))
+  entities: (statement
+    (assert
+      (expression
+        (binary_op
+          lhs: (expression
+            (integer))
+          rhs: (expression
+            (integer)))))))
+
+================================================================================
+assert with message
+================================================================================
+
 assert 1 != 0 : "my error";
+
+--------------------------------------------------------------------------------
+
+(module
+  entities: (statement
+    (assert
+      (expression
+        (condition_check
+          condition: (expression
+            (binary_op
+              lhs: (expression
+                (integer))
+              rhs: (expression
+                (integer))))
+          message: (expression
+            (string)))))))
+
+================================================================================
+assert-exception
+================================================================================
+
 assert-exception b3 == b"XXX";
 
 --------------------------------------------------------------------------------
 
 (module
-  (statement
-    (assert
-      (expression
-        (integer))))
-  (statement
-    (assert
-      (expression
-        (binary_op
-          (expression
-            (integer))
-          (expression
-            (integer))))))
-  (statement
-    (assert
-      (expression
-        (binary_op
-          (expression
-            (integer))
-          (expression
-            (integer))))
-      (string)))
   (statement
     (assert
       (expression
@@ -40,3 +61,23 @@ assert-exception b3 == b"XXX";
               (name)))
           (expression
             (bytes)))))))
+
+================================================================================
+assert-exception with message
+================================================================================
+
+assert-exception throws() : "oh no";
+
+--------------------------------------------------------------------------------
+
+(module
+  entities: (statement
+    (assert
+      (expression
+        (condition_check
+          condition: (expression
+            (function_call
+              name: (ident
+                (name))))
+          message: (expression
+            (string)))))))

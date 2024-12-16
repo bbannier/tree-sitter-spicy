@@ -246,6 +246,32 @@
     }
   },
   {
+    "type": "condition_check",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "message": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "contains",
     "named": true,
     "fields": {},
@@ -415,6 +441,10 @@
         },
         {
           "type": "char",
+          "named": true
+        },
+        {
+          "type": "condition_check",
           "named": true
         },
         {

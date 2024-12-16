@@ -1918,8 +1918,12 @@
                   "type": "FIELD",
                   "name": "attribute_value",
                   "content": {
-                    "type": "SYMBOL",
-                    "name": "expression"
+                    "type": "PREC_RIGHT",
+                    "value": 0,
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "expression"
+                    }
                   }
                 }
               ]
@@ -3027,6 +3031,10 @@
             "name": "error_literal"
           },
           {
+            "type": "SYMBOL",
+            "name": "condition_check"
+          },
+          {
             "type": "PREC",
             "value": 2000,
             "content": {
@@ -3294,17 +3302,21 @@
       ]
     },
     "new": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "new"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        }
-      ]
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "new"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
     },
     "set_add": {
       "type": "SEQ",
@@ -3806,6 +3818,35 @@
           "name": "string"
         }
       ]
+    },
+    "condition_check": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "condition",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ":"
+          },
+          {
+            "type": "FIELD",
+            "name": "message",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          }
+        ]
+      }
     },
     "block": {
       "type": "SEQ",
@@ -4903,6 +4944,10 @@
     ],
     [
       "hook_decl"
+    ],
+    [
+      "case",
+      "condition_check"
     ]
   ],
   "precedences": [],

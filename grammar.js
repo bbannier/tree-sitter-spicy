@@ -18,6 +18,7 @@ module.exports = grammar({
     [$.parameterized_type, $.function_call],
     [$._parameterized_type_name, $.map],
     [$.hook_decl],
+    [$.case, $.condition_check],
   ],
 
   rules: {
@@ -293,7 +294,7 @@ module.exports = grammar({
     attribute: $ =>
       seq(
         field("attribute_name", $.attribute_name),
-        optional(seq("=", field("attribute_value", $.expression))),
+        optional(seq("=", field("attribute_value", prec.right($.expression)))),
       ),
 
     property_name: $ => $._attribute__or_property_name,
@@ -487,6 +488,7 @@ module.exports = grammar({
           $.type_member_check,
           $.ternary,
           $.error_literal,
+          $.condition_check,
           prec(2000, seq("(", $.expression, ")")),
         ),
       ),
@@ -532,7 +534,7 @@ module.exports = grammar({
 
     cast: $ => seq("cast", "<", $.ident, ">", "(", $.expression, ")"),
 
-    new: $ => seq("new", $.expression),
+    new: $ => prec.right(seq("new", $.expression)),
 
     set_add: $ => seq("add", $.ident, "[", $.expression, "]"),
 
@@ -599,6 +601,15 @@ module.exports = grammar({
       prec.left(50, seq($.expression, "?", $.expression, ":", $.expression)),
 
     error_literal: $ => seq("error", $.string),
+
+    condition_check: $ =>
+      prec.right(
+        seq(
+          field("condition", $.expression),
+          ":",
+          field("message", $.expression),
+        ),
+      ),
 
     block: $ => seq("{", repeat(choice($.statement, $.var_decl)), "}"),
 
