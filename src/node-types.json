@@ -504,6 +504,10 @@
           "named": true
         },
         {
+          "type": "null",
+          "named": true
+        },
+        {
           "type": "port",
           "named": true
         },
@@ -1585,6 +1589,10 @@
           "named": true
         },
         {
+          "type": "stop",
+          "named": true
+        },
+        {
           "type": "switch",
           "named": true
         },
@@ -2568,16 +2576,20 @@
     "named": false
   },
   {
+    "type": "null",
+    "named": true
+  },
+  {
     "type": "on",
     "named": false
   },
   {
     "type": "optional",
-    "named": false
+    "named": true
   },
   {
     "type": "optional",
-    "named": true
+    "named": false
   },
   {
     "type": "port",
@@ -2614,6 +2626,10 @@
   {
     "type": "sink",
     "named": false
+  },
+  {
+    "type": "stop",
+    "named": true
   },
   {
     "type": "string",
