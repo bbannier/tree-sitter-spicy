@@ -614,7 +614,7 @@ module.exports = grammar({
         ),
       ),
 
-    null: $ => "Null",
+    null: _ => "Null",
 
     block: $ => seq("{", repeat(choice($.statement, $.var_decl)), "}"),
 
