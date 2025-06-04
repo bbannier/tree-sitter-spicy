@@ -1,19 +1,19 @@
 module Unit;
-# <- keyword
+# <- storage.type
 
 public type MyUnit = unit(param: uint8) {
-# <- keyword
-#      ^ keyword
-#                    ^ keyword
+# <- storage.modifier
+#      ^ keyword.other
+#                    ^ storage.type
 #                         ^ variable.parameter
 #                                ^ type
     my_bytes: bytes &size=500;
     # <- property
     #         ^ type
     #               ^ tag
-    #                     ^ constant
+    #                     ^ constant.numeric
 
     on %init {
-    # <- keyword
+    # <- keyword.other
     }
 };

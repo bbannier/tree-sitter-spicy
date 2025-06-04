@@ -50,50 +50,58 @@
  "<<"
  ">>"
  "^"
-]) @operator)
+]) @keyword.operator)
+
 (unary_op ([
  "-"
  "!"
  "~"
  "*"
-]) @operator)
+]) @keyword.operator)
 
-(integer) @constant
-(real) @constant
-(regexp) @constant
-(port) @constant
-(char) @constant
-(error_literal "error" @constant)
-(null) @constant.builtin
-(boolean) @constant.builtin
+(integer) @constant.numeric
+(real) @constant.numeric
+(regexp) @string.regexp
+(port) @constant.other
+(char) @constant.character
+(error_literal "error" @constant.language)
+(null) @constant.language
+(boolean) @constant.language
 
-(self_id) @variable.builtin
-(string) @string
+(self_id) @variable.language
+(string) @string.quoted
 
-(inout) @keyword
-(is_skip) @keyword
-(break) @keyword
-(continue) @keyword
-(stop) @keyword
-(visibility) @keyword
+(inout) @keyword.other
+(is_skip) @keyword.other
+(break) @keyword.control
+(continue) @keyword.control
+(stop) @keyword.control
+(visibility) @storage.modifier
 [
- "module"
- "unit"
- "function"
  "local"
  "global"
  "const"
  "var"
  "type"
+ "in"
+ "on"
+ "cast"
+ "new"
+] @keyword.other
+
+[
+ "module"
+ "struct"
+ "unit"
+ "function"
+] @storage.type
+
+[
  "if"
  "else"
  "switch"
- "in"
- "return"
- "on"
- "throw"
- "cast"
- "new"
- "for"
  "while"
-] @keyword
+ "return"
+ "throw"
+ "for"
+] @keyword.control
