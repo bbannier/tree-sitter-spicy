@@ -1,0 +1,32 @@
+module Function;
+# <- storage.type
+
+function f(param1: uint8, param2: vector<uint8>): uint64 {
+# <- storage.type
+#        ^ function
+#          ^ variable.parameter
+#                  ^ type
+    local xs: vector<uint64>;
+    # <- keyword.other
+    #         ^ type
+    #                ^ type
+    for (x in xs) {
+    # <- keyword.control
+    #      ^ keyword.other
+        continue;
+        # <- keyword.control
+    }
+
+    while (True) {
+    # <- keyword.control
+    #      ^ constant.language
+        stop;
+        # <- keyword.control
+    }
+    return 500 + param1 + ! param2;
+    # <- keyword.control
+    #      ^ constant.numeric
+    #          ^ keyword.operator
+    #                   ^ keyword.operator
+    #                     ^ keyword.operator
+}

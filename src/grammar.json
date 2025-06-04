@@ -2072,6 +2072,19 @@
             ]
           },
           {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "stop"
+              },
+              {
+                "type": "STRING",
+                "value": ";"
+              }
+            ]
+          },
+          {
             "type": "SYMBOL",
             "name": "while"
           },
@@ -2602,6 +2615,10 @@
       "type": "STRING",
       "value": "break"
     },
+    "stop": {
+      "type": "STRING",
+      "value": "stop"
+    },
     "switch": {
       "type": "SEQ",
       "members": [
@@ -3033,6 +3050,10 @@
           {
             "type": "SYMBOL",
             "name": "condition_check"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "null"
           },
           {
             "type": "PREC",
@@ -3847,6 +3868,10 @@
           }
         ]
       }
+    },
+    "null": {
+      "type": "STRING",
+      "value": "Null"
     },
     "block": {
       "type": "SEQ",

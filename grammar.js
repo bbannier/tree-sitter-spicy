@@ -320,6 +320,7 @@ module.exports = grammar({
           $.unset,
           seq($.continue, ";"),
           seq($.break, ";"),
+          seq($.stop, ";"),
           $.while,
           $.for,
           $.if,
@@ -411,6 +412,7 @@ module.exports = grammar({
 
     continue: _ => "continue",
     break: _ => "break",
+    stop: _ => "stop",
 
     switch: $ =>
       seq(
@@ -489,6 +491,7 @@ module.exports = grammar({
           $.ternary,
           $.error_literal,
           $.condition_check,
+          $.null,
           prec(2000, seq("(", $.expression, ")")),
         ),
       ),
@@ -610,6 +613,8 @@ module.exports = grammar({
           field("message", $.expression),
         ),
       ),
+
+    null: _ => "Null",
 
     block: $ => seq("{", repeat(choice($.statement, $.var_decl)), "}"),
 
