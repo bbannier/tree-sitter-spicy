@@ -30,34 +30,9 @@
  "view"
 ]) @type)
 
-(binary_op ([
- "<"
- "<="
- "=="
- "!="
- ">"
- ">="
- "+"
- "-"
- "*"
- "/"
- "%"
- "**"
- "&&"
- "||"
- "&"
- "|"
- "<<"
- ">>"
- "^"
-]) @keyword.operator)
+(binary_op . (_) . _ @keyword.operator . (_) .)
 
-(unary_op ([
- "-"
- "!"
- "~"
- "*"
-]) @keyword.operator)
+(unary_op . _ @keyword.operator)
 
 (integer) @constant.numeric
 (real) @constant.numeric
