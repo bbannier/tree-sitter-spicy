@@ -1,0 +1,30 @@
+module Function;
+# <- keyword
+
+function f(param1: uint8, param2: vector<uint8>): uint64 {
+# <- keyword
+#        ^ function
+#          ^ variable.parameter
+#                  ^ type
+    local xs: vector<uint64>;
+    # <- keyword
+    #         ^ type
+    #                ^ type
+    for (x in xs) {
+    # <- keyword
+    #      ^ keyword
+        continue;
+        # <- keyword
+    }
+
+    while (True) {
+    # <- keyword
+    #      ^ constant.builtin
+        stop;
+        # <- keyword
+    }
+    return 500 + param1 + param2;
+    # <- keyword
+    #      ^ constant
+    #          ^ operator
+}

@@ -1,0 +1,19 @@
+module Unit;
+# <- keyword
+
+public type MyUnit = unit(param: uint8) {
+# <- keyword
+#      ^ keyword
+#                    ^ keyword
+#                         ^ variable.parameter
+#                                ^ type
+    my_bytes: bytes &size=500;
+    # <- property
+    #         ^ type
+    #               ^ tag
+    #                     ^ constant
+
+    on %init {
+    # <- keyword
+    }
+};

@@ -6,7 +6,7 @@
       "scope": "source.spicy",
       "path": ".",
       "file-types": ["spicy"],
-      "highlights": [],
+      "highlights": ["queries/highlights.scm"],
       "injections": [],
       "locals": []
     }
