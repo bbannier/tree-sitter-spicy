@@ -14,7 +14,7 @@
   (ident) @variable
 )
 
-(field_decl (ident) @property)
+(field_decl (ident) @variable.other)
 (bitfield_field (ident) @property)
 
 [

@@ -8,7 +8,7 @@ public type MyUnit = unit(param: uint8) {
 #                         ^ variable.parameter
 #                                ^ type
     my_bytes: bytes &size=500;
-    # <- property
+    # <- variable.other
     #         ^ type
     #               ^ tag
     #                     ^ constant.numeric
