@@ -2,11 +2,11 @@
 
 (function_decl (ident) @function)
 (hook_decl (ident) @function)
-(function_arg (ident) @variable.parameter)
-(type_decl (params (ident) @variable.parameter))
+(function_arg (ident) @variable)
+(type_decl (params (ident) @variable))
 (var_decl
-  (linkage) @keyword.other
-  name: (_) @variable.other
+  (linkage) @keyword
+  name: (_) @variable
   type_: (_)? @type
 )
 
@@ -14,8 +14,15 @@
   (ident) @variable
 )
 
-(field_decl (ident) @variable.other)
+(field_decl (ident) @variable)
 (bitfield_field (ident) @property)
+
+(type_decl
+  "type" @keyword
+  name: (_) @variable
+)
+
+(module_decl "module" @keyword (ident) @variable)
 
 (function_call
   name: (_) @function
@@ -28,9 +35,9 @@
  "]"
  "{"
  "}"
-] @punctuation.bracket
+] @punctuation
 
-(attribute_name) @tag
+(attribute_name) @property
 (typename (ident) @type)
 (parameterized_type ([
  "iterator"
@@ -43,44 +50,42 @@
  "view"
 ]) @type)
 
-(binary_op . (_) . _ @keyword.operator . (_) .)
+(binary_op . (_) . _ @keyword (_) .)
 
-(unary_op . _ @keyword.operator)
+(unary_op . _ @keyword)
 
-(integer) @constant.numeric
-(real) @constant.numeric
-(regexp) @string.regexp
-(port) @constant.other
-(char) @constant.character
-(error_literal "error" @constant.language)
-(null) @constant.language
-(boolean) @constant.language
+(integer) @number
+(real) @number
+(regexp) @regexp
+(port) @number
+(char) @string
+(error_literal "error" @string)
+(null) @keyword
+(boolean) @number
 
-(self_id) @variable.language
-(string) @string.quoted
+(self_id) @variable
+(string) @string
 
-(inout) @keyword.other
-(is_skip) @keyword.other
-(break) @keyword.control
-(continue) @keyword.control
-(stop) @keyword.control
-(visibility) @storage.modifier
+(inout) @keyword
+(is_skip) @keyword
+(break) @keyword
+(continue) @keyword
+(stop) @keyword
+(visibility) @modifier
 [
  "const"
  "var"
- "type"
  "in"
  "on"
  "cast"
  "new"
-] @keyword.other
+] @keyword
 
 [
- "module"
  "struct"
  "unit"
  "function"
-] @storage.type
+] @keyword
 
 [
  "if"
@@ -90,4 +95,4 @@
  "return"
  "throw"
  "for"
-] @keyword.control
+] @keyword

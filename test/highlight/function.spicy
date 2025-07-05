@@ -1,34 +1,35 @@
 module Function;
-# <- storage.type
+# <- keyword
+#      ^ variable
 
 function f(param1: uint8, param2: vector<uint8>): uint64 {
-# <- storage.type
+# <- keyword
 #        ^ function
-#          ^ variable.parameter
+#          ^ variable
 #                  ^ type
     local xs: vector<uint64>;
-    # <- keyword.other
+    # <- keyword
     #         ^ type
     #                ^ type
     for (x in xs) {
-    # <- keyword.control
-    #      ^ keyword.other
+    # <- keyword
+    #      ^ keyword
         continue;
-        # <- keyword.control
+        # <- keyword
     }
 
     while (True) {
-    # <- keyword.control
-    #      ^ constant.language
+    # <- keyword
+    #      ^ number
         stop;
-        # <- keyword.control
+        # <- keyword
     }
     return 500 + param1 + ! param2;
-    # <- keyword.control
-    #      ^ constant.numeric
-    #          ^ keyword.operator
-    #                   ^ keyword.operator
-    #                     ^ keyword.operator
+    # <- keyword
+    #      ^ number
+    #          ^ keyword
+    #                   ^ keyword
+    #                     ^ keyword
 }
 
 global x = f(1, 2);
