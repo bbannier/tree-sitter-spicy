@@ -17,6 +17,10 @@
 (field_decl (ident) @variable.other)
 (bitfield_field (ident) @property)
 
+(function_call
+  name: (_) @function
+)
+
 [
  "("
  ")"

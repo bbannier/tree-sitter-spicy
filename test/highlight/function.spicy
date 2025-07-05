@@ -30,3 +30,6 @@ function f(param1: uint8, param2: vector<uint8>): uint64 {
     #                   ^ keyword.operator
     #                     ^ keyword.operator
 }
+
+global x = f(1, 2);
+#          ^ function
