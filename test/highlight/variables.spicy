@@ -1,0 +1,13 @@
+module foo;
+
+global x: uint8 = 123;
+# <- keyword.other
+#      ^ variable.other
+#         ^ type
+
+function fun() {
+    local x: uint8 = 123;
+    # <- keyword.other
+    #     ^ variable.other
+    #          ^ type
+}

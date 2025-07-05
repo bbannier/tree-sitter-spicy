@@ -4,6 +4,15 @@
 (hook_decl (ident) @function)
 (function_arg (ident) @variable.parameter)
 (type_decl (params (ident) @variable.parameter))
+(var_decl
+  (linkage) @keyword.other
+  name: (_) @variable.other
+  type_: (_)? @type
+)
+
+(expression
+  (ident) @variable
+)
 
 (field_decl (ident) @property)
 (bitfield_field (ident) @property)
@@ -53,8 +62,6 @@
 (stop) @keyword.control
 (visibility) @storage.modifier
 [
- "local"
- "global"
  "const"
  "var"
  "type"
