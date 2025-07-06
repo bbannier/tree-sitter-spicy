@@ -74,16 +74,12 @@
 
 (integer) @number
 (real) @number
+(regexp) @regexp
 (port) @number
 (char) @string
 (error_literal "error" @string)
 (null) @keyword
 (boolean) @number
-
-; Highlight both the full regexp as well as the delimiters as regexp. This
-; allows downstream consumers to inject different highlighting of the pattern,
-; but still highlight the surrounding `/`.
-(regexp "/" @regexp) @regexp
 
 (self_id) @keyword
 (type_member_ident) @variable
