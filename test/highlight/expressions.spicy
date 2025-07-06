@@ -1,0 +1,7 @@
+module foo;
+
+/1/;
+# <- regexp
+#^ regexp
+# ^ regexp
+#  ^

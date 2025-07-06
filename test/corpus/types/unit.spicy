@@ -816,7 +816,8 @@ type test = unit {
     (unit_switch
       (unit_switch_case
         (field_decl
-          (regexp)))
+          (regexp
+            (regexp_pattern))))
       (expression
         (integer)))))
 
@@ -873,7 +874,8 @@ type test = unit {
         (expression
           (integer))
         (field_decl
-          (regexp))))))
+          (regexp
+            (regexp_pattern)))))))
 
 ================================================================================
 Switch nested
@@ -1350,7 +1352,8 @@ type X = unit {
       (ident
         (name))
       (vector
-        (regexp)
+        (regexp
+          (regexp_pattern))
         (attribute
           (attribute_name))))))
 

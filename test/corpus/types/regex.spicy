@@ -11,13 +11,16 @@ Regex
 (module
   (statement
     (expression
-      (regexp)))
+      (regexp
+        (regexp_pattern))))
   (statement
     (expression
-      (regexp)))
+      (regexp
+        (regexp_pattern))))
   (statement
     (expression
-      (regexp))))
+      (regexp
+        (regexp_pattern)))))
 
 ================================================================================
 Capture groups
@@ -49,7 +52,8 @@ type Z = unit {
     (field_decl
       (ident
         (name))
-      (regexp)
+      (regexp
+        (regexp_pattern))
       (block
         (statement
           (print
@@ -61,7 +65,8 @@ type Z = unit {
     (field_decl
       (ident
         (name))
-      (regexp)
+      (regexp
+        (regexp_pattern))
       (attribute
         (attribute_name))
       (block
@@ -75,7 +80,8 @@ type Z = unit {
     (field_decl
       (ident
         (name))
-      (regexp)
+      (regexp
+        (regexp_pattern))
       (block
         (statement
           (print

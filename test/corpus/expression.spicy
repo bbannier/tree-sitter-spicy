@@ -100,7 +100,8 @@ self?.b ? 2.0 : b"noe_b";
         (expression
           (string))
         (expression
-          (regexp)))))
+          (regexp
+            (regexp_pattern))))))
   (statement
     (expression
       (ternary

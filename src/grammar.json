@@ -4701,11 +4701,25 @@
       ]
     },
     "regexp": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PATTERN",
-        "value": "\\/(\\\\.|[^\\\\\\/])*\\/"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "regexp_pattern"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        }
+      ]
+    },
+    "regexp_pattern": {
+      "type": "PATTERN",
+      "value": "(\\\\.|[^\\\\\\/])*"
     },
     "capture_group": {
       "type": "TOKEN",

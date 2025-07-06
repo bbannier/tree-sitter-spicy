@@ -704,7 +704,8 @@ module.exports = grammar({
         ")",
       ),
 
-    regexp: _ => token(/\/(\\.|[^\\\/])*\//),
+    regexp: $ => seq("/", $.regexp_pattern, "/"),
+    regexp_pattern: _ => /(\\.|[^\\\/])*/,
     capture_group: _ => token(/\$\d+/),
 
     struct_ctr: $ =>
