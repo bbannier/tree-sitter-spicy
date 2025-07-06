@@ -8,22 +8,30 @@ public type MyUnit = unit(param: uint8) {
 #                    ^ keyword
 #                         ^ variable
 #                                ^ type
-    my_bytes: bytes &size=500;
+    x: bytes &size=500;
     # <- variable
-    #         ^ type
-    #               ^ property
-    #                     ^ number
+    #  ^ type
+    #        ^ property
+    #              ^ number
 
     on %init {
     # <- keyword
     #  ^ event
-        self.my_bytes;
+        self.x;
         # <- keyword
         #    ^ variable
     }
 
-    x: uint8 {
+    y: uint8 {
         $$;
         # <- keyword
     }
+
+    y: uint8(1);
+       # <- type
+       #     ^ number
+    z: (uint8(1))[1];
+        # <- type
+        #     ^ number
+        #         ^ number
 };
