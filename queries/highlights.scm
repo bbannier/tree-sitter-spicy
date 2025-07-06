@@ -22,6 +22,12 @@
   name: (_) @variable
 )
 
+(parameterized_type
+  "<"
+  name: (_)? @variable
+  ">"
+)
+
 (module_decl "module" @keyword (ident) @variable)
 
 (function_call
@@ -49,6 +55,8 @@
  "]"
  "{"
  "}"
+ "<"
+ ">"
 ] @punctuation
 
 (attribute_name) @property

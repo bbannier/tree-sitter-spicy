@@ -11,3 +11,10 @@ function fun() {
     #     ^ variable
     #          ^ type
 }
+
+global xs: tuple<a: uint8, b: uint8>;
+           # <- type
+           #    ^ punctuation
+           #     ^ variable
+           #        ^ type
+           #                       ^ punctuation
