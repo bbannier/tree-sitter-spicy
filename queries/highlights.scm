@@ -28,6 +28,8 @@
   name: (_) @function
 )
 
+(hook_name) @event
+
 [
  "("
  ")"
