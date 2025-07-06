@@ -28,6 +28,17 @@
   name: (_) @function
 )
 
+(statement
+  (_
+    [
+     "assert"
+     "delete"
+     "print"
+     "unset"
+    ] @macro
+  )
+)
+
 (hook_name) @event
 
 [

@@ -1,0 +1,16 @@
+module foo;
+
+assert True;
+# <- macro
+
+global xs = map(1: b"AAA", 2: b"BBB", 3: b"CCC");
+delete xs[0];
+# <- macro
+
+print 123;
+# <- macro
+
+type X = struct { a: uint8 &optional; };
+global x: X;
+unset x.a;
+# <- macro
