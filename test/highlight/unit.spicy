@@ -18,7 +18,7 @@ public type MyUnit = unit(param: uint8) {
     # <- keyword
     #  ^ event
         self.my_bytes;
-        # <- variable
+        # <- keyword
         #    ^ variable
     }
 

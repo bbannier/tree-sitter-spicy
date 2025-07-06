@@ -77,7 +77,7 @@
 (null) @keyword
 (boolean) @number
 
-(self_id) @variable
+(self_id) @keyword
 (type_member_ident) @variable
 
 (string) @string
