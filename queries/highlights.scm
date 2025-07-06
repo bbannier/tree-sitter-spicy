@@ -64,10 +64,6 @@
  "view"
 ]) @type)
 
-(binary_op . (_) . _ @keyword (_) .)
-
-(unary_op . _ @keyword)
-
 (integer) @number
 (real) @number
 (regexp) @regexp

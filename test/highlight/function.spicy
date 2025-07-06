@@ -27,9 +27,11 @@ function f(param1: uint8, param2: vector<uint8>): uint64 {
     return 500 + param1 + ! param2;
     # <- keyword
     #      ^ number
-    #          ^ keyword
-    #                   ^ keyword
-    #                     ^ keyword
+    #          ^
+    #            ^ variable
+    #                   ^
+    #                     ^
+    #                       ^ variable
 }
 
 global x = f(1, 2);
