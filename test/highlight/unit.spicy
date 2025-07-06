@@ -20,6 +20,10 @@ public type MyUnit = unit(param: uint8) {
         self.my_bytes;
         # <- variable
         #    ^ variable
+    }
 
+    x: uint8 {
+        $$;
+        # <- keyword
     }
 };

@@ -40,6 +40,7 @@
 )
 
 (hook_name) @event
+(dd) @keyword
 
 [
  "("
