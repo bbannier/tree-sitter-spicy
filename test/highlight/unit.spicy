@@ -14,7 +14,12 @@ public type MyUnit = unit(param: uint8) {
     #               ^ property
     #                     ^ number
 
-    on %init {}
+    on %init {
     # <- keyword
     #  ^ event
+        self.my_bytes;
+        # <- variable
+        #    ^ variable
+
+    }
 };

@@ -66,6 +66,8 @@
 (boolean) @number
 
 (self_id) @variable
+(type_member_ident) @variable
+
 (string) @string
 
 (inout) @keyword
