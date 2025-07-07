@@ -40,7 +40,8 @@ b1;
     (expression
       (ident
         (name))))
-  (comment)
+  (comment
+    (comment_body))
   (statement
     (expression
       (ident

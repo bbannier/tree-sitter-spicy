@@ -1,6 +1,8 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+const not_eol = /[^\r\n\u2028\u2029]*/;
+
 module.exports = grammar({
   name: "spicy",
 
@@ -714,7 +716,8 @@ module.exports = grammar({
 
     // This is borrowed from the Python grammar,
     // https://github.com/tree-sitter/tree-sitter-python/blob/master/grammar.js.
-    comment: _ => token(seq("#", /.*/)),
+    comment: $ => seq("#", $.comment_body),
+    comment_body: _ => not_eol,
 
     // We match BTest control commands everywhere since they are present in the upstream tests.
     BTEST: _ => token(seq("@TEST", /.*/)),

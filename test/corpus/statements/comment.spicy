@@ -11,11 +11,15 @@ a; # Inline comment.
 --------------------------------------------------------------------------------
 
 (module
-  (comment)
-  (comment)
-  (comment)
+  (comment
+    (comment_body))
+  (comment
+    (comment_body))
+  (comment
+    (comment_body))
   (statement
     (expression
       (ident
         (name))))
-  (comment))
+  (comment
+    (comment_body)))

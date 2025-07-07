@@ -795,7 +795,8 @@ type test4 = unit {
         (attribute_name)
         (expression
           (integer))))
-    (comment)))
+    (comment
+      (comment_body))))
 
 ================================================================================
 Switch if
@@ -922,7 +923,8 @@ type test5 = unit {
               (typename
                 (ident
                   (name)))))))))
-  (comment)
+  (comment
+    (comment_body))
   (type_decl
     (ident
       (name))

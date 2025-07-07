@@ -2,17 +2,17 @@ module Unit;
 # <- keyword
 #      ^ variable
 
-public type MyUnit = unit(param: uint8) {
+public type MyUnit = unit(param: uint8)    {
 # <- modifier
 #      ^ keyword
 #                    ^ keyword
 #                         ^ variable
 #                                ^ type
-    x: bytes &size=500;
-    # <- variable
-    #  ^ type
-    #        ^ property
-    #              ^ number
+    x: bytes &size=500         ;
+#   ^ variable
+#      ^ type
+#            ^ property
+#                  ^ number
 
     on %init {
     # <- keyword
