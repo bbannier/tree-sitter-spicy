@@ -248,6 +248,7 @@
   {
     "type": "comment",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -1374,6 +1375,7 @@
   {
     "type": "preproc",
     "named": true,
+    "extra": true,
     "fields": {
       "body": {
         "multiple": true,
@@ -2435,7 +2437,8 @@
   },
   {
     "type": "BTEST",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "False",
