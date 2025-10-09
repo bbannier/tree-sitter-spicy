@@ -30,6 +30,8 @@
 
 (module_decl "module" @keyword (ident) @variable)
 
+(import "import" @keyword (ident) @variable)
+
 (function_call
   name: (_) @function
 )

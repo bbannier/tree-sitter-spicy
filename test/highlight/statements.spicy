@@ -1,5 +1,9 @@
 module foo;
 
+import spicy;
+# ^      keyword
+#      ^ variable
+
 assert True;
 # <- macro
 
