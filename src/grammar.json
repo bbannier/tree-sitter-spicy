@@ -2031,6 +2031,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "export_"
+          },
+          {
+            "type": "SYMBOL",
             "name": "throw_"
           },
           {
@@ -2807,6 +2811,23 @@
         {
           "type": "SYMBOL",
           "name": "array_access"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "export_": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "export"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ident"
         },
         {
           "type": "STRING",
