@@ -18,3 +18,11 @@ type X = struct { a: uint8 &optional; };
 global x: X;
 unset x.a;
 # <- macro
+
+export foo;
+# ^      keyword
+#      ^ variable
+export foo::bar;
+# ^         keyword
+#      ^    variable
+#      ^    variable

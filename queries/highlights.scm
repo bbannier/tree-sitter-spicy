@@ -31,6 +31,7 @@
 (module_decl "module" @keyword (ident) @variable)
 
 (import "import" @keyword (ident) @variable)
+(export_ "export" @keyword (ident) @variable)
 
 (function_call
   name: (_) @function
