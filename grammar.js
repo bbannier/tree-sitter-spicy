@@ -544,7 +544,7 @@ module.exports = grammar({
 
     new: $ => prec.right(seq("new", $.expression)),
 
-    set_add: $ => seq("add", $.ident, "[", $.expression, "]"),
+    set_add: $ => seq("add", $.array_access),
 
     list_comp: $ =>
       seq("[", $.expression, "for", $.ident, "in", $.expression, "]"),

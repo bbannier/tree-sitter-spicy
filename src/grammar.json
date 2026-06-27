@@ -3369,19 +3369,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "ident"
-        },
-        {
-          "type": "STRING",
-          "value": "["
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": "]"
+          "name": "array_access"
         }
       ]
     },

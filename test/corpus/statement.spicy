@@ -45,6 +45,7 @@ Set add
 
 add s1[12];
 add s2[s3];
+add foo.s3[1];
 
 --------------------------------------------------------------------------------
 
@@ -52,18 +53,36 @@ add s2[s3];
   (statement
     (expression
       (set_add
-        (ident
-          (name))
-        (expression
-          (integer)))))
+        (array_access
+          (expression
+            (ident
+              (name)))
+          (expression
+            (integer))))))
   (statement
     (expression
       (set_add
-        (ident
-          (name))
-        (expression
-          (ident
-            (name)))))))
+        (array_access
+          (expression
+            (ident
+              (name)))
+          (expression
+            (ident
+              (name)))))))
+  (statement
+    (expression
+      (set_add
+        (array_access
+          (expression
+            (type_member
+              (expression
+                (ident
+                  (name)))
+              (type_member_ident
+                (ident
+                  (name)))))
+          (expression
+            (integer)))))))
 
 ================================================================================
 Local variable
@@ -104,6 +123,7 @@ Delete
 ===
 
 delete xs[x];
+delete foo.xs[x];
 
 ---
 
@@ -114,6 +134,20 @@ delete xs[x];
         (expression
           (ident
             (name)))
+        (expression
+          (ident
+            (name))))))
+  (statement
+    (delete
+      (array_access
+        (expression
+          (type_member
+            (expression
+              (ident
+                (name)))
+            (type_member_ident
+              (ident
+                (name)))))
         (expression
           (ident
             (name)))))))

@@ -1558,15 +1558,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "expression",
-          "named": true
-        },
-        {
-          "type": "ident",
+          "type": "array_access",
           "named": true
         }
       ]
