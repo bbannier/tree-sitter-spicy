@@ -709,7 +709,7 @@ module.exports = grammar({
         ")",
       ),
 
-    regexp: $ => seq("/", $.regexp_pattern, "/"),
+    regexp: $ => seq("/", $.regexp_pattern, "/", optional("i")),
     regexp_pattern: _ => /(\\.|[^\\\/])*/,
     capture_group: _ => token(/\$\d+/),
 
