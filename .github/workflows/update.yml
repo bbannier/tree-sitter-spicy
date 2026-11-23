@@ -18,4 +18,4 @@ jobs:
         with:
           cache: npm
           node-version: 20
-      - uses: tree-sitter/parser-update-action@v1.1
+      - uses: tree-sitter/parser-update-action@v1.2
